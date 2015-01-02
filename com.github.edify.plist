@@ -1,0 +1,352 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>/System/Library/CoreServices/Applications/Network\ Utility.app/Contents/Resources/stroke www.google.com 80 80</key>
+	<string>Similar to nmap, scan a range of ports on a host.</string>
+	<key>/System/Library/CoreServices/RemoteManagement/ARDAgent.app/Contents/Resources/kickstart -activate -configure -access -on -users foo,bar,baz -clientopts -setvnclegacy -vnclegacy yes -setvncpw -vncpw 'foo' -privs -all -restart -agent</key>
+	<string>Activate screen sharing and include a VNC password.</string>
+	<key>/System/Library/CoreServices/RemoteManagement/ARDAgent.app/Contents/Resources/kickstart -clientopts -setvnclegacy -vnclegacy yes -setvncpw -vncpw 'foo' -privs -all -restart -agent</key>
+	<string>Set the VNC password in screen sharing.</string>
+	<key>/System/Library/PrivateFrameworks/Apple80211.framework/Versions/A/Resources/airport -I</key>
+	<string>Get information about the airport connection.</string>
+	<key>/System/Library/PrivateFrameworks/Apple80211.framework/Versions/A/Resources/airport -s</key>
+	<string>Scan available wireless networks.</string>
+	<key>/usr/bin/xcode-select --install</key>
+	<string>Prompt to install Xcode command line utilities.</string>
+	<key>/usr/libexec/repair_packages --list-standard-pkgs</key>
+	<string>Print the standard packages that repairPermissions will look at.</string>
+	<key>asr restore --source foo --target bar --erase --verbose --noprompt --noverify --buffers 1 --buffersize 32m --puppetstrings</key>
+	<string>Full arguments for asr restores.</string>
+	<key>autopkg repo-list |awk -F'(' '{print $2}' |tr -d \)</key>
+	<string>List current autopkg repos.</string>
+	<key>bless --netboot --server bsdp://IP.Address</key>
+	<string>Bless a netboot server.</string>
+	<key>caffeinate -s command -with arguments</key>
+	<string>Allow a command to run for a prolonged period without sleep.</string>
+	<key>caffeinate -u -t 3600</key>
+	<string>Prevent Mac from falling asleep for an hour.</string>
+	<key>chsh -s /bin/zsh</key>
+	<string>Change default shell to zsh.</string>
+	<key>codesign --display /Applications/Foo.app</key>
+	<string>Display the exectuable of an app.</string>
+	<key>command &gt; /dev/null 2&gt;&amp;1</key>
+	<string>Bash redirect stdin and stderror to /dev/null.</string>
+	<key>cp foo{,-bar}</key>
+	<string>Use brackets to copy a file, renaming in place</string>
+	<key>cp foo{-bar,-baz}</key>
+	<string>Use brackets to copy a file, making several backups, renaming in place.</string>
+	<key>createhomedir -c</key>
+	<string>Initiate home directories for local accounts.</string>
+	<key>date "+%Y%m%d"</key>
+	<string>Generate a numeric date for use in a script.</string>
+	<key>dd if=/dev/random bs=16 count=1 2&gt;/dev/null | base64 | sed 's/=//g'</key>
+	<string>Generate 128bit password.</string>
+	<key>defaults read /Applications/Foo.app/Contents.Info CFBundleShortVersionString</key>
+	<string>Get the version no. of an app.</string>
+	<key>defaults write /Library/Preferences/com.apple.SoftwareUpdate CatalogURL http://server.domain.com</key>
+	<string>Change the SUS server, i.e. for use with Reposado.</string>
+	<key>defaults write com.apple.ScreenSharing DoNotSendSystemKeys -bool YES</key>
+	<string>Disable cmd-tab inside a Screen Sharing session.</string>
+	<key>defaults write com.apple.desktopservices DSDontWriteNetworkStores true</key>
+	<string>Keep from writing .DS_Store files to file servers.</string>
+	<key>defaults write com.apple.finder QLEnableTextSelection -bool TRUE ; killall Finder</key>
+	<string>Enable text selection in QuickLook.</string>
+	<key>diff -y</key>
+	<string>Display diff in split screen.</string>
+	<key>dig +short myip.opendns.com @resolver1.opendns.com</key>
+	<string>Return your external facing IP address.</string>
+	<key>discoveryutil mdnsflushcache</key>
+	<string>Reset the DNS cache (10.10) (Multicast).</string>
+	<key>discoveryutil udnsflushcache</key>
+	<string>Reset the DNS cache (10.10) (Unicast).</string>
+	<key>diskutil info `bless --getBoot` |sed '/^ *Volume Name: */!d;s###'</key>
+	<string>Return the current boot drive.</string>
+	<key>diskutil mount disk0s3 &gt; /dev/null 2&gt;&amp;1 ; defaults read /Volumes/Recovery\ HD/com.apple.recovery.boot/SystemVersion.plist ProductVersion ; diskutil unmount disk0s3 &gt; /dev/null 2&gt;&amp;1</key>
+	<string>Check the OS version of the current recovery partition.</string>
+	<key>dns-sd -B _net-assistant._udp . &gt;&gt; /tmp/ARDhosts; cat /tmp/ARDhosts |  awk -F"._udp." '{print $2}' | sort | uniq</key>
+	<string>Discover Macs on the network; run for 30 seconds and cancel to print results.</string>
+	<key>dscacheutil -q host -a name foo |awk -F': ' '/ip_address/ {print $2}'</key>
+	<string>Get IP of a host</string>
+	<key>dscacheutil -q user -a name foo</key>
+	<string>Get lookup info on user 'foo'.</string>
+	<key>du -ch -d 1 /foo</key>
+	<string>Print filesystem usage in human readable format, with a depth of one directory.</string>
+	<key>find . -name .DS_Store -exec rm -f {} \;</key>
+	<string>Delete .DS_Store files.</string>
+	<key>find . -type f 2&gt;/dev/null | while read A; do md5 -q $A 2&gt;/dev/null; done | uniq -d</key>
+	<string>Check for duplicate files in the current directory.</string>
+	<key>find /Applications -path '*Contents/_MASReceipt/receipt' -maxdepth 4 -print |\sed 's#.app/Contents/_MASReceipt/receipt#.app#g; s#/Applications/##'</key>
+	<string>Show App Store apps.</string>
+	<key>for i in ~/.ssh/*.pub; do ssh-keygen -l -f "$i"; done</key>
+	<string>Check ssh key finderprint</string>
+	<key>git commit --amend</key>
+	<string>f the commit you want to squash into is the last commit, you can even directly add new changes to it by using the --amend flag when committing</string>
+	<key>git diff --name-status</key>
+	<string>Finding which files differ (instead of what differs inside files).</string>
+	<key>git diff --word-diff</key>
+	<string>Diff by highlighting inline word changes instead of whole lines.</string>
+	<key>git gc</key>
+	<string>Compress and clean up the repo.</string>
+	<key>git log --grep=[search term]</key>
+	<string>Search commit logs.</string>
+	<key>git log --oneline --decorate</key>
+	<string>Show branches and tags in a simple git log.</string>
+	<key>git log --pretty=format:'%C(yellow)%h%C(reset) %s %C(cyan)%cr%C(reset) %C(blue)%an%C(reset) %C(green)%d%C(reset)' --graph --date-order</key>
+	<string>Print out a readable git log.</string>
+	<key>git rebase -i HEAD~2</key>
+	<string>Squash the last two commits into one, useful for fixing silly errors.</string>
+	<key>git reset</key>
+	<string>Un-stages files staged for commits ONLY, so all your changes are still there.</string>
+	<key>git reset --hard</key>
+	<string>Cear all un-committed changes and revert back all your files to the state reflected by your last commit. DESTRUCTIVE.</string>
+	<key>git reset --hard HEAD~2</key>
+	<string>Delete a commit forever and ever.</string>
+	<key>git show :/^Merge</key>
+	<string>Shows the last merge commit.</string>
+	<key>git show :/fix</key>
+	<string>Show the last commit with the string 'fix'.</string>
+	<key>git status -sb</key>
+	<string>Show short status output in git.</string>
+	<key>grep "\s69/" /etc/services</key>
+	<string>See what is running on a port, for example, port 69</string>
+	<key>hdiutil attach -noverify -noautofsck ~/Desktop/Backup\ copy.dmg -shadow</key>
+	<string>Mount a damaged disk image, to attempt to recover data.</string>
+	<key>hdiutil attach dmg -mountpoint /tmp/name -nobrowse -noverify -noautoopen</key>
+	<string>Mount dmg hidden from view.</string>
+	<key>hdiutil create -volname foo -fs HFS+ -size 10m foo.dmg</key>
+	<string>Create a new disk image.</string>
+	<key>history | awk '{print $2}' | awk 'BEGIN{FS="|"}{print $1}' | sort | uniq -c | sort -n | tail -n 20 | sort -nr</key>
+	<string>Return a sorted list of your most used commands.</string>
+	<key>installer -showChoicesXML -pkg /path/to/foo.pkg</key>
+	<string>Display the showChoicesXML information for a given package.</string>
+	<key>ioreg -c IOPlatformExpertDevice -d 2 |awk '/IOPlatformSerialNumber/ {print $3}' |sed s/\"//g</key>
+	<string>Get serial number of current Mac.</string>
+	<key>ipconfig getifaddr en0</key>
+	<string>Get IP address for en0.</string>
+	<key>ipconfig getoption en0 domain_name_server</key>
+	<string>Get the DNS server for en0.</string>
+	<key>ipconfig getoption en0 subnet_mask</key>
+	<string>Get subnet mask for en0.</string>
+	<key>ipconfig getpacket en0</key>
+	<string>Get DHCP information for en0.</string>
+	<key>ln -s original link</key>
+	<string>Create a symlink.</string>
+	<key>ls -l |grep *.pdf |wc -l </key>
+	<string>Count the number of files in the current working directory, for example PDF files.</string>
+	<key>ls -l |grep ^- |wc -l </key>
+	<string>Count the number of regular files in the current working directory.</string>
+	<key>ls -l |grep ^d |wc -l</key>
+	<string>Count the number of directories in the current working directory.</string>
+	<key>ls /usr/{,local}/{,s}bin/foo</key>
+	<string>Use brackets to list files in four different directories in the same tree.</string>
+	<key>lsbom -p UGMsF /var/db/receipts/foo.pkg.bom</key>
+	<string>Print the bill of materials for a package.</string>
+	<key>lsof -P -i -n | cut -f 1 -d " " | uniq</key>
+	<string>Display a list of all of the applications which have connected to the Internet.</string>
+	<key>mdfind -live foo</key>
+	<string>Spotlight search, updating in real time.</string>
+	<key>mdfind -name foo</key>
+	<string>Spotlight search, matching filenames only.</string>
+	<key>mdfind foo</key>
+	<string>Run spotlight from cli.</string>
+	<key>mdutil -a -i off</key>
+	<string>Turn spotlight off.</string>
+	<key>mdutil -d /</key>
+	<string>Disable spotlight for volume.</string>
+	<key>mdutil -s /</key>
+	<string>Check status of spotlight.</string>
+	<key>mkdir -p foo/{bar,baz}</key>
+	<string>Make multiple directories in one go.</string>
+	<key>mktemp -d /tmp/foo.XXXX</key>
+	<string>Create a temporary directory.</string>
+	<key>mount_smbfs //'domain;username'@foo.domain.com/bar /Volumes/bar</key>
+	<string>Mount SMB share using domain credentials.</string>
+	<key>netstat -n |grep 5900</key>
+	<string>See open ARD connections.</string>
+	<key>nettop -m route</key>
+	<string>Show network route table.</string>
+	<key>nvram -p</key>
+	<string>Display all nvram variables</string>
+	<key>openssl enc -aes-256-cbc -d -in foo.enc -out foo.decrypted</key>
+	<string>Decrypt a file encrypted with openssl.</string>
+	<key>openssl enc -aes-256-cbc -salt -in foo -out foo.enc</key>
+	<string>Encrypt a file with a password.</string>
+	<key>openssl sha1 /path/to/foo.dmg</key>
+	<string>Verify the SHA1 digest of a downloaded file, such as an update from Apple support.</string>
+	<key>osascript -e 'set volume output muted true'</key>
+	<string>Mute the volume using applescript.</string>
+	<key>pgrep Chrome | wc -l</key>
+	<string>See processes by a specific app, for example Chrome.</string>
+	<key>pkgutil --file-info /path/to/file</key>
+	<string>See which package installed a file or binary.</string>
+	<key>pkgutil --files pkg-id</key>
+	<string>Show all files installed by pkg-id.</string>
+	<key>pkgutil --forget pkg-id</key>
+	<string>Remove receipts to trigger re-install of package.</string>
+	<key>pkgutil --pkg-info pkg-id</key>
+	<string>Print extended info about pkg-id.</string>
+	<key>pkgutil --pkgs</key>
+	<string>List all installed package IDs (use -volume to use a different volume than boot).</string>
+	<key>plutil -convert binary1 bar.plist</key>
+	<string>Convert an XML plist file to binary.</string>
+	<key>plutil -convert xml1 foo.plist</key>
+	<string>Convert a binary plist to XML format for editing.</string>
+	<key>plutil -lint /Library/Preferences/com.apple.loginwindow.plist</key>
+	<string>Check plist for errors.</string>
+	<key>pmset -g</key>
+	<string>See all current power management settings.</string>
+	<key>printenv</key>
+	<string>Print all environment variables.</string>
+	<key>profiles -D</key>
+	<string>Remove all profiles.</string>
+	<key>profiles -I -F /path/to/profile</key>
+	<string>Manually install profile.</string>
+	<key>profiles -L</key>
+	<string>See user profiles.</string>
+	<key>profiles -P</key>
+	<string>See all profiles, aggregated.</string>
+	<key>python -m SimpleHTTPServer 8000</key>
+	<string>Run a simple python webserver</string>
+	<key>qlmanage -p foo</key>
+	<string>Invoke QuickLook from the command line.</string>
+	<key>rsync -avPE src host:dest</key>
+	<string>rsync Mac OS file attributes</string>
+	<key>scutil -r foo</key>
+	<string>Check if host 'foo' is reachable.</string>
+	<key>sed -e 's/\([0-9A-Fa-f]\{2\}\)/\1:/g' -e 's/\(.*\):$/\1/' foo.txt</key>
+	<string>Convert a list of MAC addresses to include colons.</string>
+	<key>serverinfo --buildversion</key>
+	<string>Returns the build version of Server.app.</string>
+	<key>serverinfo --configured</key>
+	<string>See if the Server.app assistant has been run.</string>
+	<key>serverinfo --hardware</key>
+	<string>Check if the machine is running OS X Server.</string>
+	<key>serverinfo --plist</key>
+	<string>Output Server.app config to xml.</string>
+	<key>serverinfo --prefix</key>
+	<string>Show server root</string>
+	<key>serverinfo --shortversion</key>
+	<string>Returns the short version no. of Server.app.</string>
+	<key>serverinfo --software</key>
+	<string>See if Server.app is installed.</string>
+	<key>spctl -a -t exec -vv /Applications/Foo.app</key>
+	<string>Check to see if an app is allowed with Gatekeeper.</string>
+	<key>sqlite3 ~/Library/Preferences/com.apple.LaunchServices.QuarantineEventsV* 'delete from LSQuarantineEvent'</key>
+	<string>Delete history of files with the quarantine bit (i.e. files that have been downloaded).</string>
+	<key>sqlite3 ~/Library/Preferences/com.apple.LaunchServices.QuarantineEventsV* 'select LSQuarantineDataURLString from LSQuarantineEvent' | sort</key>
+	<string>Show a full list of files with the quarantine extended attribute (i.e. files that have been downloaded).</string>
+	<key>ssh -K -L5900:127.0.0.1:5900 user@server</key>
+	<string>Use an ssh tunnel.</string>
+	<key>ssh -o PreferredAuthentications="password" user@host</key>
+	<string>Bypass key-based auth, useful for testing your password.</string>
+	<key>ssh -t username@server 'foo'</key>
+	<string>Run command 'foo' on remote server.</string>
+	<key>stat -f '%Su' /dev/console</key>
+	<string>Get currently logged in user.</string>
+	<key>stat -x /System/Library/CoreServices/CoreTypes.bundle/Contents/Resources/XProtect.meta.plist | awk -F': ' '/Modify/ {print $2,$3,$4,$5,$6}'</key>
+	<string>Get the modification date of the XProtect plist (when it was last updated).</string>
+	<key>stat -x foo</key>
+	<string>Get info on a file.</string>
+	<key>sudo /Applications/Install\ OS\ X\ Mavericks.app/Contents/Resources/createinstallmedia --volume /path/to/media --applicationpath /Applications/Install\ OS\ X\ Mavericks.app --nointeraction</key>
+	<string>Create Mavericks install media.</string>
+	<key>sudo /System/Library/Frameworks/CoreServices.framework/Versions/Current/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user</key>
+	<string>Reset launch services database.</string>
+	<key>sudo chflags nouchg foo</key>
+	<string>Remove immutable attribute flag, similar to chattr in linux.</string>
+	<key>sudo chflags uchg foo</key>
+	<string>Make a file immutable, similar to chattr in linux.</string>
+	<key>sudo defaults write /Library/Preferences/SystemConfiguration/autodiskmount AutomountDisksWithoutUserLogin -bool true</key>
+	<string>Set system to mount secondary or external drives at the login screen. Useful for headless systems.</string>
+	<key>sudo dscacheutil -flushcache</key>
+	<string>Reset the DNS cache (10.6).</string>
+	<key>sudo fs_usage -e -f filesystem | grep -v CACHE_HIT | grep -v grep | grep open</key>
+	<string>List files as they are being opened.</string>
+	<key>sudo fs_usage -e -f filesystem | grep -v CACHE_HIT | grep -v grep | grep write</key>
+	<string>List files as they are being written to disk.</string>
+	<key>sudo fs_usage -f network Safari</key>
+	<string>List network related events.</string>
+	<key>sudo fs_usage Finder</key>
+	<string>Watch Finder activity.</string>
+	<key>sudo iotop</key>
+	<string>Part of dtrace, presents a top-like listing. On a sluggish machine, one could track the drive activity to determine what was slowing a system down.</string>
+	<key>sudo killall -HUP mDNSResponder</key>
+	<string>Reset the DNS cache (10.7+).</string>
+	<key>sudo mdutil -E /Volumes/foo</key>
+	<string>Force spotlight index to be rebuilt.</string>
+	<key>sudo nvram boot-args="-v"</key>
+	<string>Turn on verbose boot</string>
+	<key>sudo nvram boot-args="-x -v"</key>
+	<string>Boot into Safe Mode and Verbose Mode simultaneously.</string>
+	<key>sudo opensnoop -f /etc/passwd</key>
+	<string>Watch a file.</string>
+	<key>sudo opensnoop -n Finder</key>
+	<string>Watch files being opened by a process.</string>
+	<key>sudo opensnoop -p PID</key>
+	<string>Watch a process.</string>
+	<key>sudo osascript -e 'set volume 10'</key>
+	<string>Max out the volume using applescript.</string>
+	<key>sudo pkill -U user Foo</key>
+	<string>Kill specific process by name 'Foo'.</string>
+	<key>sudo pmset -a hibernatemode 0</key>
+	<string>Disable safe sleep mode. If you want safe sleep mode back, just change the '0' to a '3'.</string>
+	<key>sudo rwsnoop -p PID</key>
+	<string>Part of dtrace, observes read and writes at the application level. Very verbose, and hooked into the kernel, so very accurate.</string>
+	<key>sudo scutil --set ComputerName foo</key>
+	<string>Set the localhost and sharing name.</string>
+	<key>sudo scutil --set HostName foo</key>
+	<string>Set the localhost and sharing name.</string>
+	<key>sudo scutil --set LocalHostName foo</key>
+	<string>Set the localhost and sharing name.</string>
+	<key>sudo sharing -a /Path/to/foo</key>
+	<string>Share a directory from the command line (afp, smb, ftp).</string>
+	<key>sudo sharing -e /Path/to/folder -g 000</key>
+	<string>Turn off guest access to newly-created share.</string>
+	<key>sudo sharing -r /Path/to/foo</key>
+	<string>Turn off sharing entirely for a directory.</string>
+	<key>sudo spctl --master-disable</key>
+	<string>Disable Gatekeeper enforcement globally.</string>
+	<key>sudo tail -40 -f /var/log/system.log</key>
+	<string>Tail syslog with a buffer of 40 lines.</string>
+	<key>sudo xattr -r -d com.apple.quarantine /path/to/MyApp.app</key>
+	<string>Remove the quarantine bit from downloaded apps.</string>
+	<key>sudo xcrun cc</key>
+	<string>License the Xcode command line utilities.</string>
+	<key>sysctl -n hw.model</key>
+	<string>Return the hardware model identifier.</string>
+	<key>syslog -k Time ge -24h | egrep -e 'sudo'</key>
+	<string>Check syslog for sudo attempts in the last day.</string>
+	<key>system_profiler -listDataTypes</key>
+	<string>List all Data Types available in system_profiler.</string>
+	<key>system_profiler SPHardwareDataType</key>
+	<string>Print hardware information from system profiler.</string>
+	<key>system_profiler SPPowerDataType | grep -i Cycle | awk -F: '{print $2}'</key>
+	<string>Return battery cycle count.</string>
+	<key>system_profiler SPSoftwareDataType |awk -F': ' '/Boot Volume/{print $2}'</key>
+	<string>Show current boot drive.</string>
+	<key>tar cvfj foo.tar.bz2 ./foo</key>
+	<string>Create a compressed archive.</string>
+	<key>tar tvzf ./foo.tar.bz2</key>
+	<string>List a compressed archive.</string>
+	<key>tar xvfj ./foo.tar.bz2</key>
+	<string>Uncompress an archive.</string>
+	<key>telnet towel.blinkenlights.nl 666</key>
+	<string>Return a handy line from the BOFH Excuse Server.</string>
+	<key>time read</key>
+	<string>Run a simple stopwatch. Press enter to stop.</string>
+	<key>time read -t 60</key>
+	<string>Run a simple timer, counting down N seconds.</string>
+	<key>top -d -u -s 10</key>
+	<string>Run top, showing changes since last refresh, delayed by 10 seconds.</string>
+	<key>touch foo{bar,baz}</key>
+	<string>Use brackets to create similarly named files.</string>
+	<key>traceroute -m 100 216.81.59.173 | awk '{print $2}'</key>
+	<string>Traceroute the Star Wars crawl.</string>
+	<key>vm_stat 10</key>
+	<string>This updates the list every 10 seconds.  The last two columns (pageins and pageouts) indicate memory action.</string>
+	<key>vmrun -T ws list</key>
+	<string>List currently running VMs</string>
+	<key>wget -O /dev/null http://speedtest.wdc01.softlayer\.com/downloads/test10.zip</key>
+	<string>Check broadband speed.</string>
+</dict>
+</plist>
