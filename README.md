@@ -31,7 +31,7 @@ Installation
 
 Clone the repo and run the install script. The edify script is installed into `/usr/local/bin/` while the plist is installed into `/usr/local/share/edify/`, creating the enclosing directory if needed.
 
-    git clone https://github.com/chilcote/outset.git && cd edify
+    git clone https://github.com/chilcote/edify.git && cd edify
     sudo ./install
 
 Listing and Searching items
