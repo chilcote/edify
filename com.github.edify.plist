@@ -78,6 +78,8 @@
 	<string>Check for duplicate files in the current directory.</string>
 	<key>find /Applications -path '*Contents/_MASReceipt/receipt' -maxdepth 4 -print |\sed 's#.app/Contents/_MASReceipt/receipt#.app#g; s#/Applications/##'</key>
 	<string>Show App Store apps.</string>
+	<key>find foo -name bar -type f -exec rm -rf "{}" \;</key>
+	<string>search directory foo for files named bar and delete them.</string>
 	<key>for i in ~/.ssh/*.pub; do ssh-keygen -l -f "$i"; done</key>
 	<string>Check ssh key finderprint</string>
 	<key>git commit --amend</key>
@@ -176,6 +178,8 @@
 	<string>Verify the SHA1 digest of a downloaded file, such as an update from Apple support.</string>
 	<key>osascript -e 'set volume output muted true'</key>
 	<string>Mute the volume using applescript.</string>
+	<key>perl -i -pe's/\r$//;' foo</key>
+	<string>Change windows (DOS) style line endings to unix.</string>
 	<key>pgrep Chrome | wc -l</key>
 	<string>See processes by a specific app, for example Chrome.</string>
 	<key>pkgutil --file-info /path/to/file</key>
