@@ -74,6 +74,8 @@
 	<string>Print filesystem usage in human readable format, with a depth of one directory.</string>
 	<key>find . -name .DS_Store -exec rm -f {} \;</key>
 	<string>Delete .DS_Store files.</string>
+	<key>find . -type f -size +1G -exec rm {} +</key>
+	<string>Find files larger than 1GB and delete them.</string>
 	<key>find . -type f 2&gt;/dev/null | while read A; do md5 -q $A 2&gt;/dev/null; done | uniq -d</key>
 	<string>Check for duplicate files in the current directory.</string>
 	<key>find /Applications -path '*Contents/_MASReceipt/receipt' -maxdepth 4 -print |\sed 's#.app/Contents/_MASReceipt/receipt#.app#g; s#/Applications/##'</key>
@@ -82,6 +84,8 @@
 	<string>search directory foo for files named bar and delete them.</string>
 	<key>for i in ~/.ssh/*.pub; do ssh-keygen -l -f "$i"; done</key>
 	<string>Check ssh key finderprint</string>
+	<key>git clone git@github.com:username/repo_name.wiki.git</key>
+	<string>Clone a github wiki.</string>
 	<key>git commit --amend</key>
 	<string>f the commit you want to squash into is the last commit, you can even directly add new changes to it by using the --amend flag when committing</string>
 	<key>git diff --name-status</key>
@@ -146,6 +150,8 @@
 	<string>Print the bill of materials for a package.</string>
 	<key>lsof -P -i -n | cut -f 1 -d " " | uniq</key>
 	<string>Display a list of all of the applications which have connected to the Internet.</string>
+	<key>lsof | awk '/.Trash\//{print $2}' | xargs kill</key>
+	<string>Kill the lingering process that is preventing emptying the trash</string>
 	<key>mdfind -live foo</key>
 	<string>Spotlight search, updating in real time.</string>
 	<key>mdfind -name foo</key>
@@ -202,6 +208,8 @@
 	<string>See all current power management settings.</string>
 	<key>printenv</key>
 	<string>Print all environment variables.</string>
+	<key>printf '\xf0\x9f\x92\xa9\n'</key>
+	<string>Print poo emoji (hat tip https://twitter.com/macmuleblog/status/581452235617484800)</string>
 	<key>profiles -D</key>
 	<string>Remove all profiles.</string>
 	<key>profiles -I -F /path/to/profile</key>
