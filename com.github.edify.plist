@@ -33,7 +33,7 @@
 	<key>command &gt; /dev/null 2&gt;&amp;1</key>
 	<string>Bash redirect stdin and stderror to /dev/null.</string>
 	<key>cp foo{,-bar}</key>
-	<string>Use brackets to copy a file, renaming in place</string>
+	<string>Use brackets to copy a file, renaming in place.</string>
 	<key>cp foo{-bar,-baz}</key>
 	<string>Use brackets to copy a file, making several backups, renaming in place.</string>
 	<key>createhomedir -c</key>
@@ -67,7 +67,7 @@
 	<key>dns-sd -B _net-assistant._udp . &gt;&gt; /tmp/ARDhosts; cat /tmp/ARDhosts |  awk -F"._udp." '{print $2}' | sort | uniq</key>
 	<string>Discover Macs on the network; run for 30 seconds and cancel to print results.</string>
 	<key>dscacheutil -q host -a name foo |awk -F': ' '/ip_address/ {print $2}'</key>
-	<string>Get IP of a host</string>
+	<string>Get IP of a host.</string>
 	<key>dscacheutil -q user -a name foo</key>
 	<string>Get lookup info on user 'foo'.</string>
 	<key>du -ch -d 1 /foo</key>
@@ -83,11 +83,11 @@
 	<key>find foo -name bar -type f -exec rm -rf "{}" \;</key>
 	<string>search directory foo for files named bar and delete them.</string>
 	<key>for i in ~/.ssh/*.pub; do ssh-keygen -l -f "$i"; done</key>
-	<string>Check ssh key finderprint</string>
+	<string>Check ssh key finderprint.</string>
 	<key>git clone git@github.com:username/repo_name.wiki.git</key>
 	<string>Clone a github wiki.</string>
 	<key>git commit --amend</key>
-	<string>f the commit you want to squash into is the last commit, you can even directly add new changes to it by using the --amend flag when committing</string>
+	<string>f the commit you want to squash into is the last commit, you can even directly add new changes to it by using the --amend flag when committing.</string>
 	<key>git diff --name-status</key>
 	<string>Finding which files differ (instead of what differs inside files).</string>
 	<key>git diff --word-diff</key>
@@ -115,7 +115,7 @@
 	<key>git status -sb</key>
 	<string>Show short status output in git.</string>
 	<key>grep "\s69/" /etc/services</key>
-	<string>See what is running on a port, for example, port 69</string>
+	<string>See what is running on a port, for example, port 69.</string>
 	<key>hdiutil attach -noverify -noautofsck ~/Desktop/Backup\ copy.dmg -shadow</key>
 	<string>Mount a damaged disk image, to attempt to recover data.</string>
 	<key>hdiutil attach dmg -mountpoint /tmp/name -nobrowse -noverify -noautoopen</key>
@@ -151,7 +151,7 @@
 	<key>lsof -P -i -n | cut -f 1 -d " " | uniq</key>
 	<string>Display a list of all of the applications which have connected to the Internet.</string>
 	<key>lsof | awk '/.Trash\//{print $2}' | xargs kill</key>
-	<string>Kill the lingering process that is preventing emptying the trash</string>
+	<string>Kill the lingering process that is preventing emptying the trash.</string>
 	<key>mdfind -live foo</key>
 	<string>Spotlight search, updating in real time.</string>
 	<key>mdfind -name foo</key>
@@ -175,7 +175,7 @@
 	<key>nettop -m route</key>
 	<string>Show network route table.</string>
 	<key>nvram -p</key>
-	<string>Display all nvram variables</string>
+	<string>Display all nvram variables.</string>
 	<key>openssl enc -aes-256-cbc -d -in foo.enc -out foo.decrypted</key>
 	<string>Decrypt a file encrypted with openssl.</string>
 	<key>openssl enc -aes-256-cbc -salt -in foo -out foo.enc</key>
@@ -209,7 +209,7 @@
 	<key>printenv</key>
 	<string>Print all environment variables.</string>
 	<key>printf '\xf0\x9f\x92\xa9\n'</key>
-	<string>Print poo emoji (hat tip https://twitter.com/macmuleblog/status/581452235617484800)</string>
+	<string>Print poo emoji (hat tip https://twitter.com/macmuleblog/status/581452235617484800).</string>
 	<key>profiles -D</key>
 	<string>Remove all profiles.</string>
 	<key>profiles -I -F /path/to/profile</key>
@@ -219,11 +219,11 @@
 	<key>profiles -P</key>
 	<string>See all profiles, aggregated.</string>
 	<key>python -m SimpleHTTPServer 8000</key>
-	<string>Run a simple python webserver</string>
+	<string>Run a simple python webserver.</string>
 	<key>qlmanage -p foo</key>
 	<string>Invoke QuickLook from the command line.</string>
 	<key>rsync -avPE src host:dest</key>
-	<string>rsync Mac OS file attributes</string>
+	<string>rsync Mac OS file attributes.</string>
 	<key>scutil -r foo</key>
 	<string>Check if host 'foo' is reachable.</string>
 	<key>sed -e 's/\([0-9A-Fa-f]\{2\}\)/\1:/g' -e 's/\(.*\):$/\1/' foo.txt</key>
@@ -237,7 +237,7 @@
 	<key>serverinfo --plist</key>
 	<string>Output Server.app config to xml.</string>
 	<key>serverinfo --prefix</key>
-	<string>Show server root</string>
+	<string>Show server root.</string>
 	<key>serverinfo --shortversion</key>
 	<string>Returns the short version no. of Server.app.</string>
 	<key>serverinfo --software</key>
@@ -287,7 +287,7 @@
 	<key>sudo mdutil -E /Volumes/foo</key>
 	<string>Force spotlight index to be rebuilt.</string>
 	<key>sudo nvram boot-args="-v"</key>
-	<string>Turn on verbose boot</string>
+	<string>Turn on verbose boot.</string>
 	<key>sudo nvram boot-args="-x -v"</key>
 	<string>Boot into Safe Mode and Verbose Mode simultaneously.</string>
 	<key>sudo opensnoop -f /etc/passwd</key>
@@ -357,7 +357,7 @@
 	<key>vm_stat 10</key>
 	<string>This updates the list every 10 seconds.  The last two columns (pageins and pageouts) indicate memory action.</string>
 	<key>vmrun -T ws list</key>
-	<string>List currently running VMs</string>
+	<string>List currently running VMs.</string>
 	<key>wget -O /dev/null http://speedtest.wdc01.softlayer\.com/downloads/test10.zip</key>
 	<string>Check broadband speed.</string>
 </dict>
