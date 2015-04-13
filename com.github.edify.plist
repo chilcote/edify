@@ -136,6 +136,8 @@
 	<string>Get subnet mask for en0.</string>
 	<key>ipconfig getpacket en0</key>
 	<string>Get DHCP information for en0.</string>
+	<key>less +F</key>
+	<string>Similar to tail -f, but can ctrl-c out to vim mode.</string>
 	<key>ln -s original link</key>
 	<string>Create a symlink.</string>
 	<key>ls -l |grep *.pdf |wc -l </key>
