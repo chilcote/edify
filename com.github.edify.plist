@@ -6,6 +6,8 @@
 	<string>Similar to nmap, scan a range of ports on a host.</string>
 	<key>/System/Library/CoreServices/RemoteManagement/ARDAgent.app/Contents/Resources/kickstart -activate -configure -access -on -users foo,bar,baz -clientopts -setvnclegacy -vnclegacy yes -setvncpw -vncpw 'foo' -privs -all -restart -agent</key>
 	<string>Activate screen sharing and include a VNC password.</string>
+	<key>/System/Library/CoreServices/RemoteManagement/ARDAgent.app/Contents/Resources/kickstart -activate -configure -access -on -users foo,bar,baz -privs -all -restart -agent</key>
+	<string>Turn on screen sharing for admin users.</string>
 	<key>/System/Library/CoreServices/RemoteManagement/ARDAgent.app/Contents/Resources/kickstart -clientopts -setvnclegacy -vnclegacy yes -setvncpw -vncpw 'foo' -privs -all -restart -agent</key>
 	<string>Set the VNC password in screen sharing.</string>
 	<key>/System/Library/PrivateFrameworks/Apple80211.framework/Versions/A/Resources/airport -I</key>
@@ -16,6 +18,10 @@
 	<string>Prompt to install Xcode command line utilities.</string>
 	<key>/usr/libexec/repair_packages --list-standard-pkgs</key>
 	<string>Print the standard packages that repairPermissions will look at.</string>
+	<key>/usr/sbin/scutil -w State:/Network/Global/DNS -t 180</key>
+	<string>A way to wait for network to be active before proceeding in a script.</string>
+	<key>arp -ad</key>
+	<string>Clears the arp cache.</string>
 	<key>asr restore --source foo --target bar --erase --verbose --noprompt --noverify --buffers 1 --buffersize 32m --puppetstrings</key>
 	<string>Full arguments for asr restores.</string>
 	<key>autopkg repo-list |awk -F'(' '{print $2}' |tr -d \)</key>
@@ -52,6 +58,8 @@
 	<string>Keep from writing .DS_Store files to file servers.</string>
 	<key>defaults write com.apple.finder QLEnableTextSelection -bool TRUE ; killall Finder</key>
 	<string>Enable text selection in QuickLook.</string>
+	<key>df -h | awk '/disk1/ {print $1,$2,$3}'</key>
+	<string>Print the device, available space, and used space for disk1.</string>
 	<key>diff -y</key>
 	<string>Display diff in split screen.</string>
 	<key>dig +short myip.opendns.com @resolver1.opendns.com</key>
@@ -72,6 +80,8 @@
 	<string>Get lookup info on user 'foo'.</string>
 	<key>du -ch -d 1 /foo</key>
 	<string>Print filesystem usage in human readable format, with a depth of one directory.</string>
+	<key>echo "add State:/Network/Interface/en0/RefreshConfiguration temporary" | sudo scutil</key>
+	<string>Renew DHCP lease in a script (triggers network change events, crankd, etc)</string>
 	<key>find . -name .DS_Store -exec rm -f {} \;</key>
 	<string>Delete .DS_Store files.</string>
 	<key>find . -type f -size +1G -exec rm {} +</key>
@@ -124,10 +134,14 @@
 	<string>Create a new disk image.</string>
 	<key>history | awk '{print $2}' | awk 'BEGIN{FS="|"}{print $1}' | sort | uniq -c | sort -n | tail -n 20 | sort -nr</key>
 	<string>Return a sorted list of your most used commands.</string>
+	<key>ifconfig en1 down &amp;&amp; ifconfig en1 up</key>
+	<string>Renew DHCP lease.</string>
 	<key>installer -showChoicesXML -pkg /path/to/foo.pkg</key>
 	<string>Display the showChoicesXML information for a given package.</string>
 	<key>ioreg -c IOPlatformExpertDevice -d 2 |awk '/IOPlatformSerialNumber/ {print $3}' |sed s/\"//g</key>
 	<string>Get serial number of current Mac.</string>
+	<key>iostat -d disk0</key>
+	<string>Display device io statistics.</string>
 	<key>ipconfig getifaddr en0</key>
 	<string>Get IP address for en0.</string>
 	<key>ipconfig getoption en0 domain_name_server</key>
@@ -136,10 +150,14 @@
 	<string>Get subnet mask for en0.</string>
 	<key>ipconfig getpacket en0</key>
 	<string>Get DHCP information for en0.</string>
+	<key>ipconfig set en1 BOOTP &amp;&amp; ipconfig set en1 DHCP</key>
+	<string>Renew DHCP lease.</string>
 	<key>less +F</key>
 	<string>Similar to tail -f, but can ctrl-c out to vim mode.</string>
 	<key>ln -s original link</key>
 	<string>Create a symlink.</string>
+	<key>logger -is</key>
+	<string>Log the process id and message to stderr and syslog.</string>
 	<key>ls -l |grep *.pdf |wc -l </key>
 	<string>Count the number of files in the current working directory, for example PDF files.</string>
 	<key>ls -l |grep ^- |wc -l </key>
@@ -152,6 +170,10 @@
 	<string>Print the bill of materials for a package.</string>
 	<key>lsof -P -i -n | cut -f 1 -d " " | uniq</key>
 	<string>Display a list of all of the applications which have connected to the Internet.</string>
+	<key>lsof -n -i4TCP</key>
+	<string>List all ports.</string>
+	<key>lsof -n -i4TCP |grep LISTEN</key>
+	<string>List all ports that are listening on a host.</string>
 	<key>lsof | awk '/.Trash\//{print $2}' | xargs kill</key>
 	<string>Kill the lingering process that is preventing emptying the trash.</string>
 	<key>mdfind -live foo</key>
@@ -172,10 +194,46 @@
 	<string>Create a temporary directory.</string>
 	<key>mount_smbfs //'domain;username'@foo.domain.com/bar /Volumes/bar</key>
 	<string>Mount SMB share using domain credentials.</string>
+	<key>nc -v -w 15 www.google.com 80</key>
+	<string>Print out info about a network connection, with a defined timeout.</string>
+	<key>nc -v www.google.com 80</key>
+	<string>Print out info about a network connection.</string>
+	<key>netstat -I en0 -b |tail -1 |awk '{print $10}'</key>
+	<string>Print the network output in byes.</string>
+	<key>netstat -I en0 -b |tail -1 |awk '{print $7}'</key>
+	<string>Print the network input in bytes.</string>
+	<key>netstat -i</key>
+	<string>Show interfaces.</string>
 	<key>netstat -n |grep 5900</key>
 	<string>See open ARD connections.</string>
+	<key>netstat -nr</key>
+	<string>Print routing table.</string>
+	<key>netstat -nr |grep -m 1 -iE 'default|0.0.0.0' |awk '{print $2}'</key>
+	<string>Get subnet mask for primary interface.</string>
+	<key>netstat -nr |grep -m 1 -iE 'default|0.0.0.0' |awk '{print $6}'</key>
+	<string>Get primary interface device.</string>
+	<key>netstat -p udp</key>
+	<string>Show stats for one protocol.</string>
+	<key>netstat -s</key>
+	<string>Show per-protocol stats.</string>
 	<key>nettop -m route</key>
 	<string>Show network route table.</string>
+	<key>networksetup -listallhardwareports</key>
+	<string>Print out network service names, device, and ports.</string>
+	<key>networksetup -listallnetworkservices</key>
+	<string>Print out network service names.</string>
+	<key>networksetup -ordernetworkservices 'Wi-Fi' 'USB Ethernet'</key>
+	<string>Change network interface order.</string>
+	<key>networksetup -printcommands</key>
+	<string>List out all networksetup subcommands.</string>
+	<key>networksetup -setdhcp Wi-Fi</key>
+	<string>Set an interface to DHCP.</string>
+	<key>networksetup -setdnsservers Wi-FI 10.0.0.2 10.0.0.3</key>
+	<string>Set DNS servers explicitely.</string>
+	<key>networksetup -setmanual Wi-Fi 10.0.0.2 255.255.255.0 10.0.0.1</key>
+	<string>Configure IP, subnet, and gateway.</string>
+	<key>networksetup -setnetworkserviceenabled off</key>
+	<string>Disable a network service.</string>
 	<key>nvram -p</key>
 	<string>Display all nvram variables.</string>
 	<key>openssl enc -aes-256-cbc -d -in foo.enc -out foo.decrypted</key>
@@ -220,12 +278,18 @@
 	<string>See user profiles.</string>
 	<key>profiles -P</key>
 	<string>See all profiles, aggregated.</string>
+	<key>pydoc -g</key>
+	<string>Open python docs in a browser.</string>
 	<key>python -m SimpleHTTPServer 8000</key>
 	<string>Run a simple python webserver.</string>
 	<key>qlmanage -p foo</key>
 	<string>Invoke QuickLook from the command line.</string>
+	<key>route -n add 10.0.0.0/32 10.0.9.2</key>
+	<string>Add a route for a network to use a specific device.</string>
 	<key>rsync -avPE src host:dest</key>
 	<string>rsync Mac OS file attributes.</string>
+	<key>scutil --dns</key>
+	<string>Prints the current dns configuration.</string>
 	<key>scutil -r foo</key>
 	<string>Check if host 'foo' is reachable.</string>
 	<key>sed -e 's/\([0-9A-Fa-f]\{2\}\)/\1:/g' -e 's/\(.*\):$/\1/' foo.txt</key>
@@ -256,7 +320,7 @@
 	<string>Bypass key-based auth, useful for testing your password.</string>
 	<key>ssh -t username@server 'foo'</key>
 	<string>Run command 'foo' on remote server.</string>
-	<key>stat -f '%Su' /dev/console</key>
+	<key>stat -f%Su /dev/console</key>
 	<string>Get currently logged in user.</string>
 	<key>stat -x /System/Library/CoreServices/CoreTypes.bundle/Contents/Resources/XProtect.meta.plist | awk -F': ' '/Modify/ {print $2,$3,$4,$5,$6}'</key>
 	<string>Get the modification date of the XProtect plist (when it was last updated).</string>
@@ -304,6 +368,8 @@
 	<string>Kill specific process by name 'Foo'.</string>
 	<key>sudo pmset -a hibernatemode 0</key>
 	<string>Disable safe sleep mode. If you want safe sleep mode back, just change the '0' to a '3'.</string>
+	<key>sudo route -n flush &amp;&amp; sudo networksetup -setv4off Wi-Fi &amp;&amp; sudo networksetup -setdhcp Wi-Fi</key>
+	<string>Flush routing table and reset network device.</string>
 	<key>sudo rwsnoop -p PID</key>
 	<string>Part of dtrace, observes read and writes at the application level. Very verbose, and hooked into the kernel, so very accurate.</string>
 	<key>sudo scutil --set ComputerName foo</key>
@@ -322,6 +388,8 @@
 	<string>Disable Gatekeeper enforcement globally.</string>
 	<key>sudo tail -40 -f /var/log/system.log</key>
 	<string>Tail syslog with a buffer of 40 lines.</string>
+	<key>sudo tcpdump -i pktap,all -w dns_$(date +%Y%m%d).pcap -s0 udp port 53</key>
+	<string>Print network traffic to file (dns in this case).</string>
 	<key>sudo xattr -r -d com.apple.quarantine /path/to/MyApp.app</key>
 	<string>Remove the quarantine bit from downloaded apps.</string>
 	<key>sudo xcrun cc</key>
@@ -344,6 +412,18 @@
 	<string>List a compressed archive.</string>
 	<key>tar xvfj ./foo.tar.bz2</key>
 	<string>Uncompress an archive.</string>
+	<key>tcpdump -nS</key>
+	<string>Do a basic traffic capture.</string>
+	<key>tcpdump -nnvvXS</key>
+	<string>Print verbose traffic with data.</string>
+	<key>tcpdump -nnvvXs 548</key>
+	<string>Print verbose traffic, with port specified.</string>
+	<key>tcpdump -nnvvXs 548 dst 10.0.0.2</key>
+	<string>Print verbose traffic, with port and destination specified.</string>
+	<key>tcpdump -nnvvXs 548 dst 10.0.0.2 -w /tmp/dump.pcap</key>
+	<string>Print traffic to file.</string>
+	<key>tcpdump -qns 0 -A -r /tmp/dump.pcap</key>
+	<string>Read file into tcpdump.</string>
 	<key>telnet towel.blinkenlights.nl 666</key>
 	<string>Return a handy line from the BOFH Excuse Server.</string>
 	<key>time read</key>
@@ -354,8 +434,12 @@
 	<string>Run top, showing changes since last refresh, delayed by 10 seconds.</string>
 	<key>touch foo{bar,baz}</key>
 	<string>Use brackets to create similarly named files.</string>
+	<key>traceroute -d google.com</key>
+	<string>Print verbose debugging info.</string>
 	<key>traceroute -m 100 216.81.59.173 | awk '{print $2}'</key>
 	<string>Traceroute the Star Wars crawl.</string>
+	<key>traceroute -n google.com</key>
+	<string>Ignore names.</string>
 	<key>vm_stat 10</key>
 	<string>This updates the list every 10 seconds.  The last two columns (pageins and pageouts) indicate memory action.</string>
 	<key>vmrun -T ws list</key>
