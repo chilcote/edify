@@ -16,6 +16,8 @@
 	<string>Scan available wireless networks.</string>
 	<key>/usr/bin/xcode-select --install</key>
 	<string>Prompt to install Xcode command line utilities.</string>
+	<key>/usr/libexec/java_home</key>
+	<string>Determine the version of Java being used.</string>
 	<key>/usr/libexec/repair_packages --list-standard-pkgs</key>
 	<string>Print the standard packages that repairPermissions will look at.</string>
 	<key>/usr/sbin/scutil -w State:/Network/Global/DNS -t 180</key>
@@ -24,6 +26,14 @@
 	<string>Clears the arp cache.</string>
 	<key>asr restore --source foo --target bar --erase --verbose --noprompt --noverify --buffers 1 --buffersize 32m --puppetstrings</key>
 	<string>Full arguments for asr restores.</string>
+	<key>atsutil databases -remove</key>
+	<string>Removes all user-based and system font caches.</string>
+	<key>atsutil databases -removeUser ; sudo atsutil databases -remove ; atsutil server -shutdown</key>
+	<string>Clear font caches.</string>
+	<key>atsutil server -ping</key>
+	<string>Starts the Apple Type Services service.</string>
+	<key>atsutil server -shutdown</key>
+	<string>Stops the Apple Type Services service.</string>
 	<key>autopkg repo-list |awk -F'(' '{print $2}' |tr -d \)</key>
 	<string>List current autopkg repos.</string>
 	<key>bless --netboot --server bsdp://IP.Address</key>
@@ -64,6 +74,8 @@
 	<string>Display diff in split screen.</string>
 	<key>dig +short myip.opendns.com @resolver1.opendns.com</key>
 	<string>Return your external facing IP address.</string>
+	<key>dig -t srv _ldap._tcp.DOMAIN | /usr/bin/awk '/^_ldap/{print $NF}'</key>
+	<string>Return LDAP server information about DOMAIN.</string>
 	<key>discoveryutil mdnsflushcache</key>
 	<string>Reset the DNS cache (10.10) (Multicast).</string>
 	<key>discoveryutil udnsflushcache</key>
@@ -78,6 +90,14 @@
 	<string>Get IP of a host.</string>
 	<key>dscacheutil -q user -a name foo</key>
 	<string>Get lookup info on user 'foo'.</string>
+	<key>dscl . list /Users UniqueID | awk '$2 &gt; 500 { print $1 }'</key>
+	<string>List all user accounts with UID greater than 500.</string>
+	<key>dscl localhost read /Search/Users/$USER msDSUserPasswordExpiryTimeComputed</key>
+	<string>Return the expiration date of an Active Directory user.</string>
+	<key>dsconfigad -show | awk '/Active Directory Domain/{print $NF}'</key>
+	<string>Return the AD domain.</string>
+	<key>dsmemberutil checkmembership -U username -G admin</key>
+	<string>Check if user 'username' is an admin account.</string>
 	<key>du -ch -d 1 /foo</key>
 	<string>Print filesystem usage in human readable format, with a depth of one directory.</string>
 	<key>echo "add State:/Network/Interface/en0/RefreshConfiguration temporary" | sudo scutil</key>
@@ -94,6 +114,8 @@
 	<string>search directory foo for files named bar and delete them.</string>
 	<key>for i in ~/.ssh/*.pub; do ssh-keygen -l -f "$i"; done</key>
 	<string>Check ssh key finderprint.</string>
+	<key>getconf DARWIN_USER_DIR</key>
+	<string>Return the directory where certain user settings such as notification center prefs are stored.</string>
 	<key>git clone git@github.com:username/repo_name.wiki.git</key>
 	<string>Clone a github wiki.</string>
 	<key>git commit --amend</key>
@@ -158,6 +180,8 @@
 	<string>Create a symlink.</string>
 	<key>logger -is</key>
 	<string>Log the process id and message to stderr and syslog.</string>
+	<key>lpadmin -p "$printer_name" -o printer-is-shared=false</key>
+	<string>Disable printer sharing for a printer.</string>
 	<key>ls -l |grep *.pdf |wc -l </key>
 	<string>Count the number of files in the current working directory, for example PDF files.</string>
 	<key>ls -l |grep ^- |wc -l </key>
@@ -292,6 +316,8 @@
 	<string>Prints the current dns configuration.</string>
 	<key>scutil -r foo</key>
 	<string>Check if host 'foo' is reachable.</string>
+	<key>sed '/^$/d' file.txt</key>
+	<string>Remove empty lines from a file (via http://krypted.com/mac-os-x/remove-empty-lines-from-a-file/)</string>
 	<key>sed -e 's/\([0-9A-Fa-f]\{2\}\)/\1:/g' -e 's/\(.*\):$/\1/' foo.txt</key>
 	<string>Convert a list of MAC addresses to include colons.</string>
 	<key>serverinfo --buildversion</key>
@@ -406,6 +432,12 @@
 	<string>Return battery cycle count.</string>
 	<key>system_profiler SPSoftwareDataType |awk -F': ' '/Boot Volume/{print $2}'</key>
 	<string>Show current boot drive.</string>
+	<key>systemsetup -getstartupdisk</key>
+	<string>Get current startup disk.</string>
+	<key>systemsetup -liststartupdisks</key>
+	<string>List available startup disks (via http://krypted.com/mac-security/dont-use-bless-to-change-startup-disks-any-more-in-os-x/)</string>
+	<key>systemsetup -setstartupdisk /Volumes/MyMac</key>
+	<string>Set startup disk (via http://krypted.com/mac-security/dont-use-bless-to-change-startup-disks-any-more-in-os-x/)</string>
 	<key>tar cvfj foo.tar.bz2 ./foo</key>
 	<string>Create a compressed archive.</string>
 	<key>tar tvzf ./foo.tar.bz2</key>
