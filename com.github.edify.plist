@@ -2,8 +2,12 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>"/Applications/Install OS X El Capitan.app/Contents/Resources/startosinstall --nointeraction --volume /Volumes/Macintosh\ HD --applicationpath "/Applications/Install OS X El Capitan.app"</key>
+	<string>Non-interactively update OS X to 10.11.</string>
 	<key>/System/Library/CoreServices/Applications/Network\ Utility.app/Contents/Resources/stroke www.google.com 80 80</key>
 	<string>Similar to nmap, scan a range of ports on a host.</string>
+	<key>/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend</key>
+	<string>Lock screen.</string>
 	<key>/System/Library/CoreServices/RemoteManagement/ARDAgent.app/Contents/Resources/kickstart -activate -configure -access -on -users foo,bar,baz -clientopts -setvnclegacy -vnclegacy yes -setvncpw -vncpw 'foo' -privs -all -restart -agent</key>
 	<string>Activate screen sharing and include a VNC password.</string>
 	<key>/System/Library/CoreServices/RemoteManagement/ARDAgent.app/Contents/Resources/kickstart -activate -configure -access -on -users foo,bar,baz -privs -all -restart -agent</key>
@@ -16,12 +20,24 @@
 	<string>Scan available wireless networks.</string>
 	<key>/usr/bin/xcode-select --install</key>
 	<string>Prompt to install Xcode command line utilities.</string>
+	<key>/usr/libexec/ApplicationFirewall/socketfilterfw --add /path/to/app</key>
+	<string>Add application to firewall.</string>
+	<key>/usr/libexec/ApplicationFirewall/socketfilterfw --getglobalstate</key>
+	<string>Show firewall status.</string>
+	<key>/usr/libexec/ApplicationFirewall/socketfilterfw --setglobalstate off</key>
+	<string>Disable firewall.</string>
+	<key>/usr/libexec/ApplicationFirewall/socketfilterfw --setglobalstate on</key>
+	<string>Enable firewall.</string>
 	<key>/usr/libexec/java_home</key>
 	<string>Determine the version of Java being used.</string>
 	<key>/usr/libexec/repair_packages --list-standard-pkgs</key>
 	<string>Print the standard packages that repairPermissions will look at.</string>
+	<key>/usr/sbin/dseditgroup -o edit -a foo -t user admin</key>
+	<string>Add a user to admin group.</string>
 	<key>/usr/sbin/scutil -w State:/Network/Global/DNS -t 180</key>
 	<string>A way to wait for network to be active before proceeding in a script.</string>
+	<key>ac -p | sort -nrk 2 | awk 'NR == 2 { print $1; exit }'</key>
+	<string>Returns the username of the user with longest time logged in.</string>
 	<key>arp -ad</key>
 	<string>Clears the arp cache.</string>
 	<key>asr restore --source foo --target bar --erase --verbose --noprompt --noverify --buffers 1 --buffersize 32m --puppetstrings</key>
@@ -54,6 +70,8 @@
 	<string>Use brackets to copy a file, making several backups, renaming in place.</string>
 	<key>createhomedir -c</key>
 	<string>Initiate home directories for local accounts.</string>
+	<key>curl ipecho.net/plain</key>
+	<string>Returns your external facing IP address. Ref: http://krypted.com/mac-security/grab-your-wan-ip-in-scripts/</string>
 	<key>date "+%Y%m%d"</key>
 	<string>Generate a numeric date for use in a script.</string>
 	<key>dd if=/dev/random bs=16 count=1 2&gt;/dev/null | base64 | sed 's/=//g'</key>
@@ -62,8 +80,12 @@
 	<string>Get the version no. of an app.</string>
 	<key>defaults write /Library/Preferences/com.apple.SoftwareUpdate CatalogURL http://server.domain.com</key>
 	<string>Change the SUS server, i.e. for use with Reposado.</string>
+	<key>defaults write com.apple.NetworkBrowser BrowseAllInterfaces -bool true</key>
+	<string>Enable airdrop.</string>
 	<key>defaults write com.apple.ScreenSharing DoNotSendSystemKeys -bool YES</key>
 	<string>Disable cmd-tab inside a Screen Sharing session.</string>
+	<key>defaults write com.apple.TextEdit RichText -int 0</key>
+	<string>Set TextEdit to use plain text by default.</string>
 	<key>defaults write com.apple.desktopservices DSDontWriteNetworkStores true</key>
 	<string>Keep from writing .DS_Store files to file servers.</string>
 	<key>defaults write com.apple.finder QLEnableTextSelection -bool TRUE ; killall Finder</key>
@@ -94,6 +116,8 @@
 	<string>List all user accounts with UID greater than 500.</string>
 	<key>dscl localhost read /Search/Users/$USER msDSUserPasswordExpiryTimeComputed</key>
 	<string>Return the expiration date of an Active Directory user.</string>
+	<key>dsconfigad -force -remove -u foo -p bar</key>
+	<string>Unbind from AD.</string>
 	<key>dsconfigad -show | awk '/Active Directory Domain/{print $NF}'</key>
 	<string>Return the AD domain.</string>
 	<key>dsmemberutil checkmembership -U username -G admin</key>
@@ -102,6 +126,10 @@
 	<string>Print filesystem usage in human readable format, with a depth of one directory.</string>
 	<key>echo "add State:/Network/Interface/en0/RefreshConfiguration temporary" | sudo scutil</key>
 	<string>Renew DHCP lease in a script (triggers network change events, crankd, etc)</string>
+	<key>echo '{"json":"obj"}' | python -mjson.tool</key>
+	<string>Validate json object with pretty-print.</string>
+	<key>fdesetup status</key>
+	<string>Get status of filevault.</string>
 	<key>find . -name .DS_Store -exec rm -f {} \;</key>
 	<string>Delete .DS_Store files.</string>
 	<key>find . -type f -size +1G -exec rm {} +</key>
@@ -174,6 +202,16 @@
 	<string>Get DHCP information for en0.</string>
 	<key>ipconfig set en1 BOOTP &amp;&amp; ipconfig set en1 DHCP</key>
 	<string>Renew DHCP lease.</string>
+	<key>kextload -b foo</key>
+	<string>Load kernel extension.</string>
+	<key>kextstat -l</key>
+	<string>List status of loaded kernel extensions.</string>
+	<key>kextunload -b</key>
+	<string>Unload kernel extension.</string>
+	<key>killall cfprefsd</key>
+	<string>Restart the cfprefsd process.</string>
+	<key>launchctl load -w /System/Library/LaunchDaemons/org.apache.httpd.plist</key>
+	<string>configure apache to start at load</string>
 	<key>less +F</key>
 	<string>Similar to tail -f, but can ctrl-c out to vim mode.</string>
 	<key>ln -s original link</key>
@@ -204,12 +242,20 @@
 	<string>Spotlight search, updating in real time.</string>
 	<key>mdfind -name foo</key>
 	<string>Spotlight search, matching filenames only.</string>
+	<key>mdfind -onlyin ~/Documents foo</key>
+	<string>restrict search to a single directory.</string>
 	<key>mdfind foo</key>
 	<string>Run spotlight from cli.</string>
+	<key>mdls -name kMDItemLastUsedDate /Applications/Safari.app</key>
+	<string>Check the last time an app was used.</string>
+	<key>mdutil -E</key>
+	<string>erase spotlight index and rebuild it from scratch.</string>
 	<key>mdutil -a -i off</key>
 	<string>Turn spotlight off.</string>
 	<key>mdutil -d /</key>
 	<string>Disable spotlight for volume.</string>
+	<key>mdutil -i off </key>
+	<string>turn off spotlight indexing.</string>
 	<key>mdutil -s /</key>
 	<string>Check status of spotlight.</string>
 	<key>mkdir -p foo/{bar,baz}</key>
@@ -258,8 +304,16 @@
 	<string>Configure IP, subnet, and gateway.</string>
 	<key>networksetup -setnetworkserviceenabled off</key>
 	<string>Disable a network service.</string>
+	<key>networksetup -setsearchdomains INTERFACE empty</key>
+	<string>Use 'empty' to clear the manually-set search domains'</string>
 	<key>nvram -p</key>
 	<string>Display all nvram variables.</string>
+	<key>odutil set log debug</key>
+	<string>Set debug log for opendirectoryd.</string>
+	<key>odutil show nodenames</key>
+	<string>Show offline connections.</string>
+	<key>open /System/Library/Frameworks/ScreenSaver.framework/Versions/A/Resources/ScreenSaverEngine.app</key>
+	<string>Start screensaver.</string>
 	<key>openssl enc -aes-256-cbc -d -in foo.enc -out foo.decrypted</key>
 	<string>Decrypt a file encrypted with openssl.</string>
 	<key>openssl enc -aes-256-cbc -salt -in foo -out foo.enc</key>
@@ -272,6 +326,8 @@
 	<string>Change windows (DOS) style line endings to unix.</string>
 	<key>pgrep Chrome | wc -l</key>
 	<string>See processes by a specific app, for example Chrome.</string>
+	<key>pgrep Safari</key>
+	<string>Get the process of a running app.</string>
 	<key>pkgutil --file-info /path/to/file</key>
 	<string>See which package installed a file or binary.</string>
 	<key>pkgutil --files pkg-id</key>
@@ -282,6 +338,8 @@
 	<string>Print extended info about pkg-id.</string>
 	<key>pkgutil --pkgs</key>
 	<string>List all installed package IDs (use -volume to use a different volume than boot).</string>
+	<key>pkill Safari</key>
+	<string>Kill the process of a running app.</string>
 	<key>plutil -convert binary1 bar.plist</key>
 	<string>Convert an XML plist file to binary.</string>
 	<key>plutil -convert xml1 foo.plist</key>
@@ -302,6 +360,8 @@
 	<string>See user profiles.</string>
 	<key>profiles -P</key>
 	<string>See all profiles, aggregated.</string>
+	<key>ps -A -o pid,nice,command</key>
+	<string>Prints a process list including the nice value.</string>
 	<key>pydoc -g</key>
 	<string>Open python docs in a browser.</string>
 	<key>python -m SimpleHTTPServer 8000</key>
@@ -312,6 +372,14 @@
 	<string>Add a route for a network to use a specific device.</string>
 	<key>rsync -avPE src host:dest</key>
 	<string>rsync Mac OS file attributes.</string>
+	<key>screencapture -C -M image.png</key>
+	<string>capture contents of the screen and attach to a mail message.</string>
+	<key>screencapture -C screenshot.png</key>
+	<string>Capture screen and save to a file.</string>
+	<key>screencapture -c -W</key>
+	<string>capture window using mouse, without drop shadow and copy to clipboard.</string>
+	<key>screencapture -s -t pdf image.pdf</key>
+	<string>select a portion of the screen with the mouse and save as a pdf.</string>
 	<key>scutil --dns</key>
 	<string>Prints the current dns configuration.</string>
 	<key>scutil -r foo</key>
@@ -348,6 +416,8 @@
 	<string>Run command 'foo' on remote server.</string>
 	<key>stat -f%Su /dev/console</key>
 	<string>Get currently logged in user.</string>
+	<key>stat -f%u /dev/console</key>
+	<string>Get the currently logged in user's uid.</string>
 	<key>stat -x /System/Library/CoreServices/CoreTypes.bundle/Contents/Resources/XProtect.meta.plist | awk -F': ' '/Modify/ {print $2,$3,$4,$5,$6}'</key>
 	<string>Get the modification date of the XProtect plist (when it was last updated).</string>
 	<key>stat -x foo</key>
@@ -362,8 +432,12 @@
 	<string>Make a file immutable, similar to chattr in linux.</string>
 	<key>sudo defaults write /Library/Preferences/SystemConfiguration/autodiskmount AutomountDisksWithoutUserLogin -bool true</key>
 	<string>Set system to mount secondary or external drives at the login screen. Useful for headless systems.</string>
+	<key>sudo defaults write /Library/Preferences/com.apple.loginwindow PasswordExpirationDays 0</key>
+	<string>Turn off OS warning for password expirations.</string>
 	<key>sudo dscacheutil -flushcache</key>
 	<string>Reset the DNS cache (10.6).</string>
+	<key>sudo fdesetup authrestart</key>
+	<string>Bypass filevalut pre-boot loginwindow.</string>
 	<key>sudo fs_usage -e -f filesystem | grep -v CACHE_HIT | grep -v grep | grep open</key>
 	<string>List files as they are being opened.</string>
 	<key>sudo fs_usage -e -f filesystem | grep -v CACHE_HIT | grep -v grep | grep write</key>
@@ -422,6 +496,8 @@
 	<string>License the Xcode command line utilities.</string>
 	<key>sysctl -n hw.model</key>
 	<string>Return the hardware model identifier.</string>
+	<key>sysdiagnose -f ~/Desktop/</key>
+	<string>Get system and performance report.</string>
 	<key>syslog -k Time ge -24h | egrep -e 'sudo'</key>
 	<string>Check syslog for sudo attempts in the last day.</string>
 	<key>system_profiler -listDataTypes</key>
@@ -472,6 +548,8 @@
 	<string>Traceroute the Star Wars crawl.</string>
 	<key>traceroute -n google.com</key>
 	<string>Ignore names.</string>
+	<key>vm_stat -c 10 1</key>
+	<string>Repeat memory stats 10 times.</string>
 	<key>vm_stat 10</key>
 	<string>This updates the list every 10 seconds.  The last two columns (pageins and pageouts) indicate memory action.</string>
 	<key>vmrun -T ws list</key>
