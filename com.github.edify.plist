@@ -210,8 +210,50 @@
 	<string>Unload kernel extension.</string>
 	<key>killall cfprefsd</key>
 	<string>Restart the cfprefsd process.</string>
+	<key>launchctl asuser &lt;user&gt; /bin/launchctl load /Library/LaunchAgents/com.foo.launchagent.plist</key>
+	<string>Enable a launchagent as a user when run as root (deprecated in 10.10).</string>
+	<key>launchctl bootout gui/&lt;UID&gt; /Library/LaunchAgents/com.foo.launchagent.plist</key>
+	<string>Unload a LaunchAgent in the GUI domain (10.11 and up).</string>
+	<key>launchctl bootstrap gui/&lt;UID&gt; /Library/LaunchAgents/com.foo.launchagent.plist</key>
+	<string>Load a LaunchAgent giving the full path to the service plist (10.10 and up).</string>
+	<key>launchctl bootstrap gui/&lt;UID&gt;/&lt;service-name&gt;</key>
+	<string>Load a LaunchAgent in the GUI domain, passing the service name (10.10 and up).</string>
+	<key>launchctl bootstrap system/&lt;service-name&gt; /Library/LaunchAgents/com.foo.launchagent.plist</key>
+	<string>Load a LaunchDaemon as root (10.10 and up).</string>
+	<key>launchctl bootstrap user/&lt;UID&gt;/&lt;service-name&gt; /Library/LaunchAgents/com.foo.launchagent.plist</key>
+	<string>Load a LaunchAgent in the user domain, passing the service name (10.10 and up).</string>
+	<key>launchctl disable gui/&lt;UID&gt;/com.foo.launchagent</key>
+	<string>Disable a LaunchAgent in the GUI user space (10.10 and up). Process will not load again until it's enabled.</string>
+	<key>launchctl kill SIGKILL gui/&lt;UID&gt;/com.foo.launchagent</key>
+    <string>Kill a launchd service or agent. Example sigs: https://developer.apple.com/library/mac/documentation/Darwin/Reference/ManPages/man3/signal.3.html</string>
+	<key>launchctl list</key>
+	<string>List daemons and agents (deprecated in 10.10).</string>
+	<key>launchctl load -w /Library/LaunchDaemons/com.foo.launchdaemon.plist</key>
+	<string>Enable and load a LaunchDaemon (deprecated in 10.10).</string>
 	<key>launchctl load -w /System/Library/LaunchDaemons/org.apache.httpd.plist</key>
 	<string>configure apache to start at load</string>
+	<key>launchctl load /Library/LaunchDaemons/com.foo.launchdaemon.plist</key>
+	<string>Load a LaunchDaemon (deprecated in 10.10).</string>
+	<key>launchctl print gui/&lt;UID&gt;</key>
+	<string>List info about daemons and agents (10.10 and up).</string>
+	<key>launchctl print gui/&lt;UID&gt;/com.foo.launchagent</key>
+	<string>Print info about a specific LaunchAgent (10.10 and up).</string>
+	<key>launchctl print system</key>
+	<string>List info about root level services (10.10 and up).</string>
+	<key>launchctl reboot -s system</key>
+	<string>Reboot into single-user mode.</string>
+	<key>launchctl reboot halt</key>
+	<string>Shut down system immediately (10.10 and up).</string>
+	<key>launchctl reboot logout</key>
+	<string>Kill the GUI login session, suppressing any modal dialogs to block logout.</string>
+	<key>launchctl reboot system</key>
+	<string>Reboot system immediately (10.10 and up).</string>
+	<key>launchctl reboot userspace</key>
+	<string>Reconstruct user domain (simulates a reboot) (10.10 and up).</string>
+	<key>launchctl unload -w /Library/LaunchDaemons/com.foo.launchdaemon.plist</key>
+	<string>Disable and unload a LaunchDaemon (deprecated in 10.10).</string>
+	<key>launchctl unload /Library/LaunchDaemons/com.foo.launchdaemon.plist</key>
+	<string>Unload a LaunchDaemon (deprecated in 10.10).</string>
 	<key>less +F</key>
 	<string>Similar to tail -f, but can ctrl-c out to vim mode.</string>
 	<key>ln -s original link</key>
