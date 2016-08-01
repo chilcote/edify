@@ -34,6 +34,8 @@
 	<string>Print the standard packages that repairPermissions will look at.</string>
 	<key>/usr/sbin/dseditgroup -o edit -a foo -t user admin</key>
 	<string>Add a user to admin group.</string>
+	<key>/usr/sbin/dseditgroup -o edit -a foo -t user com.apple.access_ssh</key>
+	<string>Add a user to the ssh access group.</string>
 	<key>/usr/sbin/scutil -w State:/Network/Global/DNS -t 180</key>
 	<string>A way to wait for network to be active before proceeding in a script.</string>
 	<key>ac -p | sort -nrk 2 | awk 'NR == 2 { print $1; exit }'</key>
@@ -120,6 +122,12 @@
 	<string>Unbind from AD.</string>
 	<key>dsconfigad -show | awk '/Active Directory Domain/{print $NF}'</key>
 	<string>Return the AD domain.</string>
+	<key>dseditgroup -o create -q com.apple.access_ssh</key>
+	<string>Create an SSH access group.</string>
+	<key>dseditgroup -o delete -t group com.apple.access_ssh</key>
+	<string>Delete an existing SSH access group.</string>
+	<key>dseditgroup -o edit -a "DOMAIN\Domain Admins" -t group com.apple.access_ssh</key>
+	<string>Add a group to the SSH access group.</string>
 	<key>dsmemberutil checkmembership -U username -G admin</key>
 	<string>Check if user 'username' is an admin account.</string>
 	<key>du -ch -d 1 /foo</key>
@@ -225,7 +233,7 @@
 	<key>launchctl disable gui/&lt;UID&gt;/com.foo.launchagent</key>
 	<string>Disable a LaunchAgent in the GUI user space (10.10 and up). Process will not load again until it's enabled.</string>
 	<key>launchctl kill SIGKILL gui/&lt;UID&gt;/com.foo.launchagent</key>
-    <string>Kill a launchd service or agent. Example sigs: https://developer.apple.com/library/mac/documentation/Darwin/Reference/ManPages/man3/signal.3.html</string>
+	<string>Kill a launchd service or agent. Example sigs: https://developer.apple.com/library/mac/documentation/Darwin/Reference/ManPages/man3/signal.3.html</string>
 	<key>launchctl list</key>
 	<string>List daemons and agents (deprecated in 10.10).</string>
 	<key>launchctl load -w /Library/LaunchDaemons/com.foo.launchdaemon.plist</key>
@@ -280,6 +288,8 @@
 	<string>List all ports that are listening on a host.</string>
 	<key>lsof | awk '/.Trash\//{print $2}' | xargs kill</key>
 	<string>Kill the lingering process that is preventing emptying the trash.</string>
+	<key>man diskutil | col -bx &gt; /path/to/diskutil.txt</key>
+	<string>Export manpage to a text file, with formatting.</string>
 	<key>mdfind -live foo</key>
 	<string>Spotlight search, updating in real time.</string>
 	<key>mdfind -name foo</key>
@@ -406,6 +416,8 @@
 	<string>Prints a process list including the nice value.</string>
 	<key>pydoc -g</key>
 	<string>Open python docs in a browser.</string>
+	<key>python -c 'import this'</key>
+	<string>Print the Zen of Python.</string>
 	<key>python -m SimpleHTTPServer 8000</key>
 	<string>Run a simple python webserver.</string>
 	<key>qlmanage -p foo</key>
@@ -554,6 +566,8 @@
 	<string>Get current startup disk.</string>
 	<key>systemsetup -liststartupdisks</key>
 	<string>List available startup disks (via http://krypted.com/mac-security/dont-use-bless-to-change-startup-disks-any-more-in-os-x/)</string>
+	<key>systemsetup -setremotelogin on</key>
+	<string>Enable SSH.</string>
 	<key>systemsetup -setstartupdisk /Volumes/MyMac</key>
 	<string>Set startup disk (via http://krypted.com/mac-security/dont-use-bless-to-change-startup-disks-any-more-in-os-x/)</string>
 	<key>tar cvfj foo.tar.bz2 ./foo</key>
