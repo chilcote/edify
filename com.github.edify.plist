@@ -14,10 +14,18 @@
 	<string>Turn on screen sharing for admin users.</string>
 	<key>/System/Library/CoreServices/RemoteManagement/ARDAgent.app/Contents/Resources/kickstart -clientopts -setvnclegacy -vnclegacy yes -setvncpw -vncpw 'foo' -privs -all -restart -agent</key>
 	<string>Set the VNC password in screen sharing.</string>
+	<key>/System/Library/CoreServices/RemoteManagement/ARDAgent.app/Contents/Resources/kickstart -deactivate -configure -access -off</key>
+	<string>Turn off Remote Management</string>
 	<key>/System/Library/PrivateFrameworks/Apple80211.framework/Versions/A/Resources/airport -I</key>
 	<string>Get information about the airport connection.</string>
 	<key>/System/Library/PrivateFrameworks/Apple80211.framework/Versions/A/Resources/airport -s</key>
 	<string>Scan available wireless networks.</string>
+	<key>/System/Library/PrivateFrameworks/SystemAdministration.framework/Versions/A/Resources/DirectoryTools -repairPermissions username</key>
+	<string>Repair permissions of a given username. Useful when migrating local accounts.</string>
+	<key>/usr/bin/defaults read /Library/Preferences/com.apple.alf globalstate</key>
+	<string>Get the status of the firewall state (0 = off; 1 = on)</string>
+	<key>/usr/bin/security find-generic-password -l "Enterprise Connect" /Users/$loggedinuser/Library/Keychains/login.keychain | awk -F "=" '/acct/ {print $2}' | tr -d "\""</key>
+	<string>Get the username from Enterprise Connect keychain entry.</string>
 	<key>/usr/bin/xcode-select --install</key>
 	<string>Prompt to install Xcode command line utilities.</string>
 	<key>/usr/libexec/ApplicationFirewall/socketfilterfw --add /path/to/app</key>
@@ -64,6 +72,8 @@
 	<string>Change default shell to zsh.</string>
 	<key>codesign --display /Applications/Foo.app</key>
 	<string>Display the exectuable of an app.</string>
+	<key>codesign -dvvv /Applications/Foo.app</key>
+	<string>Verify signing of an application.</string>	
 	<key>command &gt; /dev/null 2&gt;&amp;1</key>
 	<string>Bash redirect stdin and stderror to /dev/null.</string>
 	<key>cp foo{,-bar}</key>
@@ -82,6 +92,8 @@
 	<string>Get the version no. of an app.</string>
 	<key>defaults write /Library/Preferences/com.apple.SoftwareUpdate CatalogURL http://server.domain.com</key>
 	<string>Change the SUS server, i.e. for use with Reposado.</string>
+	<key>defaults write com.apple.Enterprise-Connect debugMode -bool true</key>
+	<string>Enable debug mode for Enterprise Connect.</string>
 	<key>defaults write com.apple.NetworkBrowser BrowseAllInterfaces -bool true</key>
 	<string>Enable airdrop.</string>
 	<key>defaults write com.apple.ScreenSharing DoNotSendSystemKeys -bool YES</key>
@@ -92,6 +104,8 @@
 	<string>Keep from writing .DS_Store files to file servers.</string>
 	<key>defaults write com.apple.finder QLEnableTextSelection -bool TRUE ; killall Finder</key>
 	<string>Enable text selection in QuickLook.</string>
+	<key>defaults write com.microsoft.autoupdate2 ExtendedLogging -bool TRUE</key>
+	<string>Enable extended logging for Microsoft Autoupdate (MAU) tool.</string>
 	<key>df -h | awk '/disk1/ {print $1,$2,$3}'</key>
 	<string>Print the device, available space, and used space for disk1.</string>
 	<key>diff -y</key>
@@ -116,6 +130,8 @@
 	<string>Get lookup info on user 'foo'.</string>
 	<key>dscl . list /Users UniqueID | awk '$2 &gt; 500 { print $1 }'</key>
 	<string>List all user accounts with UID greater than 500.</string>
+	<key>dscl . passwd /Users/foo ""</key>
+	<string>Set a blank password for user foo.</string>
 	<key>dscl localhost read /Search/Users/$USER msDSUserPasswordExpiryTimeComputed</key>
 	<string>Return the expiration date of an Active Directory user.</string>
 	<key>dsconfigad -force -remove -u foo -p bar</key>
@@ -414,8 +430,12 @@
 	<string>See all profiles, aggregated.</string>
 	<key>ps -A -o pid,nice,command</key>
 	<string>Prints a process list including the nice value.</string>
+	<key>pwpolicy -u foo -setpolicy "newPasswordRequired=1"</key>
+	<string>Require a new password for local user foo.</string>
 	<key>pydoc -g</key>
 	<string>Open python docs in a browser.</string>
+	<key>python -c "import site; print site.getsitepackages()"</key>
+	<string>Display the site-packages directories used by python.</string>
 	<key>python -c 'import this'</key>
 	<string>Print the Zen of Python.</string>
 	<key>python -m SimpleHTTPServer 8000</key>
