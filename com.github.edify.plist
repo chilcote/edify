@@ -22,6 +22,8 @@
 	<string>Scan available wireless networks.</string>
 	<key>/System/Library/PrivateFrameworks/SystemAdministration.framework/Versions/A/Resources/DirectoryTools -repairPermissions username</key>
 	<string>Repair permissions of a given username. Useful when migrating local accounts.</string>
+	<key>/usr/bin/csrutil clear</key>
+	<string>Reset SIP (10.12.2 and above)</string>
 	<key>/usr/bin/defaults read /Library/Preferences/com.apple.alf globalstate</key>
 	<string>Get the status of the firewall state (0 = off; 1 = on)</string>
 	<key>/usr/bin/security find-generic-password -l "Enterprise Connect" /Users/$loggedinuser/Library/Keychains/login.keychain | awk -F "=" '/acct/ {print $2}' | tr -d "\""</key>
@@ -73,7 +75,7 @@
 	<key>codesign --display /Applications/Foo.app</key>
 	<string>Display the exectuable of an app.</string>
 	<key>codesign -dvvv /Applications/Foo.app</key>
-	<string>Verify signing of an application.</string>	
+	<string>Verify signing of an application.</string>
 	<key>command &gt; /dev/null 2&gt;&amp;1</key>
 	<string>Bash redirect stdin and stderror to /dev/null.</string>
 	<key>cp foo{,-bar}</key>
@@ -166,6 +168,8 @@
 	<string>search directory foo for files named bar and delete them.</string>
 	<key>for i in ~/.ssh/*.pub; do ssh-keygen -l -f "$i"; done</key>
 	<string>Check ssh key finderprint.</string>
+	<key>fs_usage -e -www</key>
+	<string>More detailed fs_usage output.</string>
 	<key>getconf DARWIN_USER_DIR</key>
 	<string>Return the directory where certain user settings such as notification center prefs are stored.</string>
 	<key>git clone git@github.com:username/repo_name.wiki.git</key>
@@ -430,6 +434,8 @@
 	<string>See all profiles, aggregated.</string>
 	<key>ps -A -o pid,nice,command</key>
 	<string>Prints a process list including the nice value.</string>
+	<key>ps lauxww</key>
+	<string>Include the parent process (ppid) in the output.</string>
 	<key>pwpolicy -u foo -setpolicy "newPasswordRequired=1"</key>
 	<string>Require a new password for local user foo.</string>
 	<key>pydoc -g</key>
