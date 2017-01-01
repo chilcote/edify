@@ -4,6 +4,10 @@
 <dict>
 	<key>"/Applications/Install OS X El Capitan.app/Contents/Resources/startosinstall --nointeraction --volume /Volumes/Macintosh\ HD --applicationpath "/Applications/Install OS X El Capitan.app"</key>
 	<string>Non-interactively update OS X to 10.11.</string>
+	<key>/Library/Application\ Support/JAMF/bin/Management\ Action.app/Contents/MacOS/Management\ Action -message 'foo' -title 'bar' -subtitle 'baz' -sound default -open URL -activate com.apple.Terminal</key>
+	<string>Jamf app to send notifications to notification center.</string>
+	<key>/Library/Application\ Support/JAMF/bin/jamfHelper.app/Contents/MacOS/jamfHelper -help</key>
+	<string>Jamf Helper options.</string>
 	<key>/System/Library/CoreServices/Applications/Network\ Utility.app/Contents/Resources/stroke www.google.com 80 80</key>
 	<string>Similar to nmap, scan a range of ports on a host.</string>
 	<key>/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend</key>
@@ -42,6 +46,8 @@
 	<string>Determine the version of Java being used.</string>
 	<key>/usr/libexec/repair_packages --list-standard-pkgs</key>
 	<string>Print the standard packages that repairPermissions will look at.</string>
+	<key>/usr/local/jamf/bin/jamf help -hidden</key>
+	<string>Show hidden jamf binary options.</string>
 	<key>/usr/sbin/dseditgroup -o edit -a foo -t user admin</key>
 	<string>Add a user to admin group.</string>
 	<key>/usr/sbin/dseditgroup -o edit -a foo -t user com.apple.access_ssh</key>
@@ -230,6 +236,8 @@
 	<string>Get DHCP information for en0.</string>
 	<key>ipconfig set en1 BOOTP &amp;&amp; ipconfig set en1 DHCP</key>
 	<string>Renew DHCP lease.</string>
+	<key>jamf killJAMFHelper</key>
+	<string>Kill the JAMFHelper process in a script.</string>
 	<key>kextload -b foo</key>
 	<string>Load kernel extension.</string>
 	<key>kextstat -l</key>
