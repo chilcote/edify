@@ -26,6 +26,8 @@
 	<string>Scan available wireless networks.</string>
 	<key>/System/Library/PrivateFrameworks/SystemAdministration.framework/Versions/A/Resources/DirectoryTools -repairPermissions username</key>
 	<string>Repair permissions of a given username. Useful when migrating local accounts.</string>
+	<key>/usr/bin/AssetCacheLocatorUtil</key>
+	<string>Get the caching server being used by this mac.</string>
 	<key>/usr/bin/csrutil clear</key>
 	<string>Reset SIP (10.12.2 and above)</string>
 	<key>/usr/bin/defaults read /Library/Preferences/com.apple.alf globalstate</key>
@@ -114,6 +116,8 @@
 	<string>Enable text selection in QuickLook.</string>
 	<key>defaults write com.microsoft.autoupdate2 ExtendedLogging -bool TRUE</key>
 	<string>Enable extended logging for Microsoft Autoupdate (MAU) tool.</string>
+	<key>defaults write com.microsoft.autoupdate2 ExtendedLogging -bool true</key>
+	<string>Turn on debug logging for Microsoft AutoUpdate (logs to /Library/Logs/Microsoft/autoupdate.log)</string>
 	<key>df -h | awk '/disk1/ {print $1,$2,$3}'</key>
 	<string>Print the device, available space, and used space for disk1.</string>
 	<key>diff -y</key>
@@ -244,6 +248,8 @@
 	<string>List status of loaded kernel extensions.</string>
 	<key>kextunload -b</key>
 	<string>Unload kernel extension.</string>
+	<key>killall ControlStrip</key>
+	<string>Restart the Touch Bar Control Strip dingus.</string>
 	<key>killall cfprefsd</key>
 	<string>Restart the cfprefsd process.</string>
 	<key>launchctl asuser &lt;user&gt; /bin/launchctl load /Library/LaunchAgents/com.foo.launchagent.plist</key>
@@ -294,6 +300,8 @@
 	<string>Similar to tail -f, but can ctrl-c out to vim mode.</string>
 	<key>ln -s original link</key>
 	<string>Create a symlink.</string>
+	<key>log show -predicate 'eventMessage contains "error"'</key>
+	<string>Display logs with an error string.</string>
 	<key>logger -is</key>
 	<string>Log the process id and message to stderr and syslog.</string>
 	<key>lpadmin -p "$printer_name" -o printer-is-shared=false</key>
@@ -328,6 +336,8 @@
 	<string>Run spotlight from cli.</string>
 	<key>mdls -name kMDItemLastUsedDate /Applications/Safari.app</key>
 	<string>Check the last time an app was used.</string>
+	<key>mdmclient QueryInstalledProfiles</key>
+	<string>Return information about configuration profiles.</string>
 	<key>mdutil -E</key>
 	<string>erase spotlight index and rebuild it from scratch.</string>
 	<key>mdutil -a -i off</key>
