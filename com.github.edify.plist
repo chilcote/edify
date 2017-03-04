@@ -162,6 +162,8 @@
 	<string>Print filesystem usage in human readable format, with a depth of one directory.</string>
 	<key>echo "add State:/Network/Interface/en0/RefreshConfiguration temporary" | sudo scutil</key>
 	<string>Renew DHCP lease in a script (triggers network change events, crankd, etc)</string>
+	<key>echo "show State:/Network/Global/IPv4" | scutil | awk '/PrimaryInterface/ {print $3}'</key>
+	<string>Get the default network interface (en0, etc).</string>
 	<key>echo '{"json":"obj"}' | python -mjson.tool</key>
 	<string>Validate json object with pretty-print.</string>
 	<key>fdesetup status</key>
@@ -334,6 +336,8 @@
 	<string>restrict search to a single directory.</string>
 	<key>mdfind foo</key>
 	<string>Run spotlight from cli.</string>
+	<key>mdls -name kMDItemFSCreationDate /path/to/foo |awk -F' = ' '{print $2}'</key>
+	<string>Return the creation date of a file.</string>
 	<key>mdls -name kMDItemLastUsedDate /Applications/Safari.app</key>
 	<string>Check the last time an app was used.</string>
 	<key>mdmclient QueryInstalledProfiles</key>
@@ -404,6 +408,8 @@
 	<string>Show offline connections.</string>
 	<key>open /System/Library/Frameworks/ScreenSaver.framework/Versions/A/Resources/ScreenSaverEngine.app</key>
 	<string>Start screensaver.</string>
+	<key>open macappstore://showUpdatesPage</key>
+	<string>Launch the Mac App Store and load the updates pane.</string>
 	<key>openssl enc -aes-256-cbc -d -in foo.enc -out foo.decrypted</key>
 	<string>Decrypt a file encrypted with openssl.</string>
 	<key>openssl enc -aes-256-cbc -salt -in foo -out foo.enc</key>
@@ -482,6 +488,8 @@
 	<string>Prints the current dns configuration.</string>
 	<key>scutil -r foo</key>
 	<string>Check if host 'foo' is reachable.</string>
+	<key>security cms -D -i foo.mobileconfig</key>
+	<string>Convert mobileconfig file to xml.</string>
 	<key>sed '/^$/d' file.txt</key>
 	<string>Remove empty lines from a file (via http://krypted.com/mac-os-x/remove-empty-lines-from-a-file/)</string>
 	<key>sed -e 's/\([0-9A-Fa-f]\{2\}\)/\1:/g' -e 's/\(.*\):$/\1/' foo.txt</key>
@@ -656,5 +664,7 @@
 	<string>List currently running VMs.</string>
 	<key>wget -O /dev/null http://speedtest.wdc01.softlayer\.com/downloads/test10.zip</key>
 	<string>Check broadband speed.</string>
+	<key>while true ; do ps axcopid,command,%cpu | grep "foo " ; sleep 1 ; done</key>
+	<string>Monitor the CPU usage of a process (trailing space will exclude foo_bar etc)</string>
 </dict>
 </plist>
