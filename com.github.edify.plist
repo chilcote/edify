@@ -600,6 +600,8 @@
 	<string>Remove the quarantine bit from downloaded apps.</string>
 	<key>sudo xcrun cc</key>
 	<string>License the Xcode command line utilities.</string>
+	<key>sysadminctl -deleteUser foo</key>
+	<string>Cleanly delete a user (alternative to using dscl).</string>
 	<key>sysctl -n hw.model</key>
 	<string>Return the hardware model identifier.</string>
 	<key>sysdiagnose -f ~/Desktop/</key>
