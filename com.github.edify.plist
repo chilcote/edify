@@ -402,6 +402,8 @@
 	<string>Use 'empty' to clear the manually-set search domains'</string>
 	<key>nvram -p</key>
 	<string>Display all nvram variables.</string>
+	<key>nvram recovery-boot-mode=1</key>
+	<string>Reboot into recovery mode.</string>
 	<key>odutil set log debug</key>
 	<string>Set debug log for opendirectoryd.</string>
 	<key>odutil show nodenames</key>
