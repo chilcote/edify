@@ -24,6 +24,8 @@
 	<string>Get information about the airport connection.</string>
 	<key>/System/Library/PrivateFrameworks/Apple80211.framework/Versions/A/Resources/airport -s</key>
 	<string>Scan available wireless networks.</string>
+	<key>/System/Library/PrivateFrameworks/Seeding.framework/Resources/seedutil enroll CATALOG</key>
+	<string>Configure a software update appleseed catalog (CustomerSeed, DeveloperSeed, PublicSeed).</string>
 	<key>/System/Library/PrivateFrameworks/SystemAdministration.framework/Versions/A/Resources/DirectoryTools -repairPermissions username</key>
 	<string>Repair permissions of a given username. Useful when migrating local accounts.</string>
 	<key>/usr/bin/AssetCacheLocatorUtil</key>
@@ -56,6 +58,8 @@
 	<string>Add a user to the ssh access group.</string>
 	<key>/usr/sbin/scutil -w State:/Network/Global/DNS -t 180</key>
 	<string>A way to wait for network to be active before proceeding in a script.</string>
+	<key>Print the contents/settings of a config profile.</key>
+	<string>Profiles -Lo stdout-xml</string>
 	<key>ac -p | sort -nrk 2 | awk 'NR == 2 { print $1; exit }'</key>
 	<string>Returns the username of the user with longest time logged in.</string>
 	<key>arp -ad</key>
@@ -72,12 +76,18 @@
 	<string>Stops the Apple Type Services service.</string>
 	<key>autopkg repo-list |awk -F'(' '{print $2}' |tr -d \)</key>
 	<string>List current autopkg repos.</string>
+	<key>bash &lt;(curl -sL http://url/script)</key>
+	<string>Run bash command over http in Recovery Mode. (Don't do this).</string>
+	<key>bless --folder /System/Library/CoreServices/ --setBoot</key>
+	<string>Bless a system folder (helpful for encrypting APFS boot volumes in Fusion)</string>
 	<key>bless --netboot --server bsdp://IP.Address</key>
 	<string>Bless a netboot server.</string>
 	<key>caffeinate -s command -with arguments</key>
 	<string>Allow a command to run for a prolonged period without sleep.</string>
 	<key>caffeinate -u -t 3600</key>
 	<string>Prevent Mac from falling asleep for an hour.</string>
+	<key>chef-shell -z -c /etc/chef/client.rb</key>
+	<string>Run chef in interactive mode including all resources.</string>
 	<key>chsh -s /bin/zsh</key>
 	<string>Change default shell to zsh.</string>
 	<key>codesign --display /Applications/Foo.app</key>
@@ -326,6 +336,8 @@
 	<string>List all ports that are listening on a host.</string>
 	<key>lsof | awk '/.Trash\//{print $2}' | xargs kill</key>
 	<string>Kill the lingering process that is preventing emptying the trash.</string>
+	<key>macosguest.forceRecoveryModeInstall = "TRUE"</key>
+	<string>Add this to your vmx file to boot VM to recovery.</string>
 	<key>man diskutil | col -bx &gt; /path/to/diskutil.txt</key>
 	<string>Export manpage to a text file, with formatting.</string>
 	<key>mdfind -live foo</key>
