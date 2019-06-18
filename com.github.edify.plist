@@ -36,6 +36,8 @@
 	<string>Get the status of the firewall state (0 = off; 1 = on)</string>
 	<key>/usr/bin/log show --predicate '(subsystem == "com.grahamgilbert.crypt")' --style syslog --debug --info --last 24h</key>
 	<string>Show crypt logs.</string>
+	<key>/usr/bin/open "x-apple.systempreferences:com.apple.preferences.softwareupdate?client=bau&amp;installMajorOSBundle=com.apple.InstallAssistant.Seed.macOS1015Seed1"</key>
+	<string>Grab the Catalina seed installer.</string>
 	<key>/usr/bin/security authorizationdb read system.login.console</key>
 	<string>Read authorizationdb values.</string>
 	<key>/usr/bin/security find-generic-password -l "Enterprise Connect" /Users/$loggedinuser/Library/Keychains/login.keychain | awk -F "=" '/acct/ {print $2}' | tr -d "\""</key>
