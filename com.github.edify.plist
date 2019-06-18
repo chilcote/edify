@@ -34,6 +34,10 @@
 	<string>Reset SIP (10.12.2 and above)</string>
 	<key>/usr/bin/defaults read /Library/Preferences/com.apple.alf globalstate</key>
 	<string>Get the status of the firewall state (0 = off; 1 = on)</string>
+	<key>/usr/bin/log show --predicate '(subsystem == "com.grahamgilbert.crypt")' --style syslog --debug --info --last 24h</key>
+	<string>Show crypt logs.</string>
+	<key>/usr/bin/security authorizationdb read system.login.console</key>
+	<string>Read authorizationdb values.</string>
 	<key>/usr/bin/security find-generic-password -l "Enterprise Connect" /Users/$loggedinuser/Library/Keychains/login.keychain | awk -F "=" '/acct/ {print $2}' | tr -d "\""</key>
 	<string>Get the username from Enterprise Connect keychain entry.</string>
 	<key>/usr/bin/xcode-select --install</key>
@@ -58,8 +62,8 @@
 	<string>Add a user to the ssh access group.</string>
 	<key>/usr/sbin/scutil -w State:/Network/Global/DNS -t 180</key>
 	<string>A way to wait for network to be active before proceeding in a script.</string>
-	<key>Print the contents/settings of a config profile.</key>
-	<string>Profiles -Lo stdout-xml</string>
+	<key>Profiles -Lo stdout-xml</key>
+	<string>Print the contents/settings of a config profile</string>
 	<key>ac -p | sort -nrk 2 | awk 'NR == 2 { print $1; exit }'</key>
 	<string>Returns the username of the user with longest time logged in.</string>
 	<key>arp -ad</key>
@@ -74,6 +78,8 @@
 	<string>Starts the Apple Type Services service.</string>
 	<key>atsutil server -shutdown</key>
 	<string>Stops the Apple Type Services service.</string>
+	<key>auth sufficient pam_tid.so</key>
+	<string>Add to /etc/pam.d/sudo to allow Touch ID</string>
 	<key>autopkg repo-list |awk -F'(' '{print $2}' |tr -d \)</key>
 	<string>List current autopkg repos.</string>
 	<key>bash &lt;(curl -sL http://url/script)</key>
@@ -92,6 +98,8 @@
 	<string>Change default shell to zsh.</string>
 	<key>codesign --display /Applications/Foo.app</key>
 	<string>Display the exectuable of an app.</string>
+	<key>codesign -dv --verbose=4 /Applications/Foo.app</key>
+	<string>Check code signing for an app.</string>
 	<key>codesign -dvvv /Applications/Foo.app</key>
 	<string>Verify signing of an application.</string>
 	<key>command &gt; /dev/null 2&gt;&amp;1</key>
@@ -108,6 +116,10 @@
 	<string>Generate a numeric date for use in a script.</string>
 	<key>dd if=/dev/random bs=16 count=1 2&gt;/dev/null | base64 | sed 's/=//g'</key>
 	<string>Generate 128bit password.</string>
+	<key>defaults delete /Library/Preferences/com.apple.SoftwareUpdate SUDisableEVCheck</key>
+	<string>Disable the SUDisableEVCheck setting for softwareupdate.</string>
+	<key>defaults delete /Library/Preferences/com.apple.seeding</key>
+	<string>Remove the seeding pref for appleseed.</string>
 	<key>defaults read /Applications/Foo.app/Contents.Info CFBundleShortVersionString</key>
 	<string>Get the version no. of an app.</string>
 	<key>defaults write /Library/Preferences/com.apple.SoftwareUpdate CatalogURL http://server.domain.com</key>
@@ -314,6 +326,10 @@
 	<string>Create a symlink.</string>
 	<key>log show -predicate 'eventMessage contains "error"'</key>
 	<string>Display logs with an error string.</string>
+	<key>log stream --debug --predicate 'subsystem == "com.apple.TCC"</key>
+	<string>Show TCC log events.</string>
+	<key>log stream --debug --predicate 'subsystem == "com.apple.TCC" and eventMessage BEGINSWITH "AttributionChain"'</key>
+	<string>Show TCC AttributionChain log events.</string>
 	<key>logger -is</key>
 	<string>Log the process id and message to stderr and syslog.</string>
 	<key>lpadmin -p "$printer_name" -o printer-is-shared=false</key>
@@ -420,6 +436,8 @@
 	<string>Set debug log for opendirectoryd.</string>
 	<key>odutil show nodenames</key>
 	<string>Show offline connections.</string>
+	<key>open "x-apple.systempreferences:com.apple.preferences.softwareupdate?client=bau&amp;installMajorOSBundle=com.apple.InstallAssistant.Mojave"</key>
+	<string>Download Mojave beta.</string>
 	<key>open /System/Library/Frameworks/ScreenSaver.framework/Versions/A/Resources/ScreenSaverEngine.app</key>
 	<string>Start screensaver.</string>
 	<key>open macappstore://showUpdatesPage</key>
@@ -490,6 +508,8 @@
 	<string>Add a route for a network to use a specific device.</string>
 	<key>rsync -avPE src host:dest</key>
 	<string>rsync Mac OS file attributes.</string>
+	<key>ruby -e 'key = [125, 137, 82, 35, 210, 188, 221, 234, 163, 185, 31]; IO.read("/etc/kcpassword").bytes.each_with_index { |b, i| print [b ^ key[i % key.size]].pack("U*") }'</key>
+	<string>Reverse password from kcpassword file.</string>
 	<key>screencapture -C -M image.png</key>
 	<string>capture contents of the screen and attach to a mail message.</string>
 	<key>screencapture -C screenshot.png</key>
