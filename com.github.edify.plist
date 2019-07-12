@@ -490,6 +490,10 @@
 	<string>See user profiles.</string>
 	<key>profiles -P</key>
 	<string>See all profiles, aggregated.</string>
+	<key>profiles renew -type enrollment</key>
+	<string>Trigger DEP enrollment prompt.</string>
+	<key>profiles status -type enrollment</key>
+	<string>Determine if a machine is enrolled in MDM, and if UAMDM.</string>
 	<key>ps -A -o pid,nice,command</key>
 	<string>Prints a process list including the nice value.</string>
 	<key>ps lauxww</key>
