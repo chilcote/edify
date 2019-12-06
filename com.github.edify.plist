@@ -326,12 +326,14 @@
 	<string>Similar to tail -f, but can ctrl-c out to vim mode.</string>
 	<key>ln -s original link</key>
 	<string>Create a symlink.</string>
+	<key>log show --debug --info --signpost --predicate 'subsystem contains "com.apple.unc"'</key>
+	<string>View Notification Center logs to determine the correct bundleidentifier to whitelist.</string>
+	<key>log show --debug --predicate 'subsystem == "com.apple.TCC" AND eventMessage BEGINSWITH "AttributionChain"'</key>
+	<string>View AttributionChain logs to determine the correct bundleidentifier to whitelist.</string>
 	<key>log show -predicate 'eventMessage contains "error"'</key>
 	<string>Display logs with an error string.</string>
 	<key>log stream --debug --predicate 'subsystem == "com.apple.TCC"</key>
 	<string>Show TCC log events.</string>
-	<key>log stream --debug --predicate 'subsystem == "com.apple.TCC" and eventMessage BEGINSWITH "AttributionChain"'</key>
-	<string>Show TCC AttributionChain log events.</string>
 	<key>logger -is</key>
 	<string>Log the process id and message to stderr and syslog.</string>
 	<key>lpadmin -p "$printer_name" -o printer-is-shared=false</key>
@@ -708,5 +710,7 @@
 	<string>Check broadband speed.</string>
 	<key>while true ; do ps axcopid,command,%cpu | grep "foo " ; sleep 1 ; done</key>
 	<string>Monitor the CPU usage of a process (trailing space will exclude foo_bar etc)</string>
+	<key>xartutil --erase-all</key>
+	<string>Delete the cryptokeys on disk. This will render the Mac unbootable.</string>
 </dict>
 </plist>
