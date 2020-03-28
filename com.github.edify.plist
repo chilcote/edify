@@ -434,7 +434,15 @@
 	<string>Use 'empty' to clear the manually-set search domains'</string>
 	<key>nvram -p</key>
 	<string>Display all nvram variables.</string>
-	<key>nvram recovery-boot-mode=1</key>
+	<key>nvram internet-recovery-mode=DiagsModeDisk</key>
+	<string>Boot to Local Apple Hardware Diagnostic (D)</string>
+	<key>nvram internet-recovery-mode=DiagsModeNetwork</key>
+	<string>Boot to Internet/AST diagnostic (OPT-D)</string>
+	<key>nvram internet-recovery-mode=RecoveryModeDisk</key>
+	<string>Boot to Recovery (CMD-R)</string>
+	<key>nvram internet-recovery-mode=RecoveryModeNetwork</key>
+	<string>Boot to Internet Recovery (CMD-OPT-R)</string>
+	<key>nvram recovery-boot-mode=unused</key>
 	<string>Reboot into recovery mode.</string>
 	<key>odutil set log debug</key>
 	<string>Set debug log for opendirectoryd.</string>
@@ -454,6 +462,8 @@
 	<string>Verify the SHA1 digest of a downloaded file, such as an update from Apple support.</string>
 	<key>osascript -e 'set volume output muted true'</key>
 	<string>Mute the volume using applescript.</string>
+	<key>osqueryi --disable_extensions --disable_events --flagfile=</key>
+	<string>Run osquery without debug output.</string>
 	<key>perl -i -pe's/\r$//;' foo</key>
 	<string>Change windows (DOS) style line endings to unix.</string>
 	<key>pgrep Chrome | wc -l</key>
