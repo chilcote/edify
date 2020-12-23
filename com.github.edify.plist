@@ -100,6 +100,8 @@
 	<string>Change default shell to zsh.</string>
 	<key>codesign --display /Applications/Foo.app</key>
 	<string>Display the exectuable of an app.</string>
+	<key>codesign -dr - /Applications/Foo.app</key>
+	<string>Return the anchor cert for an app (useful for TCC/PPPC)</string>
 	<key>codesign -dv --verbose=4 /Applications/Foo.app</key>
 	<string>Check code signing for an app.</string>
 	<key>codesign -dvvv /Applications/Foo.app</key>
@@ -164,6 +166,8 @@
 	<string>Get IP of a host.</string>
 	<key>dscacheutil -q user -a name foo</key>
 	<string>Get lookup info on user 'foo'.</string>
+	<key>dscl -f /Volumes/Macintosh\ HD\ -\ Data/private/var/db/dslocal/nodes/Default localhost -passwd /Local/Default/Users/root</key>
+	<string>Enable root account in Recovery</string>
 	<key>dscl . list /Users UniqueID | awk '$2 &gt; 500 { print $1 }'</key>
 	<string>List all user accounts with UID greater than 500.</string>
 	<key>dscl . passwd /Users/foo ""</key>
@@ -460,6 +464,8 @@
 	<string>Encrypt a file with a password.</string>
 	<key>openssl sha1 /path/to/foo.dmg</key>
 	<string>Verify the SHA1 digest of a downloaded file, such as an update from Apple support.</string>
+	<key>openssl x509 -checkend 0 -noout -in /path/to/cert.pem</key>
+	<string>Check validity of a cert.</string>
 	<key>osascript -e 'set volume output muted true'</key>
 	<string>Mute the volume using applescript.</string>
 	<key>osqueryi --disable_extensions --disable_events --flagfile=</key>
@@ -702,6 +708,10 @@
 	<string>Run a simple timer, counting down N seconds.</string>
 	<key>top -d -u -s 10</key>
 	<string>Run top, showing changes since last refresh, delayed by 10 seconds.</string>
+	<key>touch -t 202001010000 /path/to/file</key>
+	<string>Edit the access and modify times of a file.</string>
+	<key>touch /tmp/.com.apple.dt.CommandLineTools.installondemand.in-progress</key>
+	<string>Trigger Command Line Tools install</string>
 	<key>touch foo{bar,baz}</key>
 	<string>Use brackets to create similarly named files.</string>
 	<key>traceroute -d google.com</key>
