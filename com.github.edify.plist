@@ -322,6 +322,8 @@
 	<string>Reboot system immediately (10.10 and up).</string>
 	<key>launchctl reboot userspace</key>
 	<string>Reconstruct user domain (simulates a reboot) (10.10 and up).</string>
+	<key>launchctl stop com.apple.softwareupdated &amp;&amp; launchctl start com.apple.softwareupdated</key>
+	<string>Restart the softwareupdated process</string>
 	<key>launchctl unload -w /Library/LaunchDaemons/com.foo.launchdaemon.plist</key>
 	<string>Disable and unload a LaunchDaemon (deprecated in 10.10).</string>
 	<key>launchctl unload /Library/LaunchDaemons/com.foo.launchdaemon.plist</key>
