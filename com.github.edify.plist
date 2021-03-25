@@ -258,6 +258,8 @@
 	<string>Display the showChoicesXML information for a given package.</string>
 	<key>ioreg -c IOPlatformExpertDevice -d 2 |awk '/IOPlatformSerialNumber/ {print $3}' |sed s/\"//g</key>
 	<string>Get serial number of current Mac.</string>
+	<key>ioreg -c IOPlatformExpertDevice -d 2 |awk '/IOPlatformUUID/ {print $3}' |sed s/\"//g </key>
+	<string>Get uuid of the current Mac.</string>
 	<key>iostat -d disk0</key>
 	<string>Display device io statistics.</string>
 	<key>ipconfig getifaddr en0</key>
