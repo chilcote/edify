@@ -4,6 +4,8 @@
 <dict>
 	<key>"/Applications/Install OS X El Capitan.app/Contents/Resources/startosinstall --nointeraction --volume /Volumes/Macintosh\ HD --applicationpath "/Applications/Install OS X El Capitan.app"</key>
 	<string>Non-interactively update OS X to 10.11.</string>
+	<key>/Applications/Install\ macOS\ Big\ Sur.app/Contents/Resources/startosinstall --agreetolicense --rebootdelay 90 --eraseinstall --newvolumename "Macintosh HD" --forcequitapps --user username --passprompt</key>
+	<string>Run startosinstall interactively to erase and install macOS.</string>
 	<key>/Library/Application\ Support/JAMF/bin/Management\ Action.app/Contents/MacOS/Management\ Action -message 'foo' -title 'bar' -subtitle 'baz' -sound default -open URL -activate com.apple.Terminal</key>
 	<string>Jamf app to send notifications to notification center.</string>
 	<key>/Library/Application\ Support/JAMF/bin/jamfHelper.app/Contents/MacOS/jamfHelper -help</key>
@@ -40,6 +42,8 @@
 	<string>Grab the Catalina seed installer.</string>
 	<key>/usr/bin/security authorizationdb read system.login.console</key>
 	<string>Read authorizationdb values.</string>
+	<key>/usr/bin/security find-certificate -a -c  "MicroMDM Identity (hostname)" -p -Z "/Library/Keychains/System.keychain" | /usr/bin/openssl x509 -noout -enddate| cut -f2 -d=</key>
+	<string>Get information about MicroMDM Identity Cert (pass the name of the cert).</string>
 	<key>/usr/bin/security find-generic-password -l "Enterprise Connect" /Users/$loggedinuser/Library/Keychains/login.keychain | awk -F "=" '/acct/ {print $2}' | tr -d "\""</key>
 	<string>Get the username from Enterprise Connect keychain entry.</string>
 	<key>/usr/bin/xcode-select --install</key>
@@ -58,6 +62,16 @@
 	<string>Print the standard packages that repairPermissions will look at.</string>
 	<key>/usr/local/jamf/bin/jamf help -hidden</key>
 	<string>Show hidden jamf binary options.</string>
+	<key>/usr/local/micromdm/build/linux/mdmctl apply blueprints -f new_blueprint.json</key>
+	<string>MicroMDM: apply new blueprint.</string>
+	<key>/usr/local/micromdm/build/linux/mdmctl apply profiles -f ./TCC.mobileconfig</key>
+	<string>MicroMDM: add a profile.</string>
+	<key>/usr/local/micromdm/build/linux/mdmctl get blueprints -name default_blueprint</key>
+	<string>MicroMDM: get blueprint by name.</string>
+	<key>/usr/local/micromdm/build/linux/mdmctl get-profiles</key>
+	<string>MicroMDM: get list of profiles.</string>
+	<key>/usr/local/micromdm/build/linux/mdmctl remove devices -serials foo,bar</key>
+	<string>MicroMDM: remove devices by serial.</string>
 	<key>/usr/sbin/dseditgroup -o edit -a foo -t user admin</key>
 	<string>Add a user to admin group.</string>
 	<key>/usr/sbin/dseditgroup -o edit -a foo -t user com.apple.access_ssh</key>
@@ -188,6 +202,8 @@
 	<string>Check if user 'username' is an admin account.</string>
 	<key>du -ch -d 1 /foo</key>
 	<string>Print filesystem usage in human readable format, with a depth of one directory.</string>
+	<key>echo "$password" | "$startos" --agreetolicense --rebootdelay 90 --eraseinstall --newvolumename "Macintosh HD" --forcequitapps --user "$currentuser" --stdinpass</key>
+	<string>Automate startosinstall by passing the password as stdin.</string>
 	<key>echo "add State:/Network/Interface/en0/RefreshConfiguration temporary" | sudo scutil</key>
 	<string>Renew DHCP lease in a script (triggers network change events, crankd, etc)</string>
 	<key>echo "show State:/Network/Global/IPv4" | scutil | awk '/PrimaryInterface/ {print $3}'</key>
@@ -284,6 +300,8 @@
 	<string>Restart the Touch Bar Control Strip dingus.</string>
 	<key>killall cfprefsd</key>
 	<string>Restart the cfprefsd process.</string>
+	<key>kmutil trigger-panic-medic --volume-root /Volumes/Macintosh\ HD</key>
+	<string>Clear out all registered KEXTS while booted to RecoveryOS.</string>
 	<key>launchctl asuser &lt;user&gt; /bin/launchctl load /Library/LaunchAgents/com.foo.launchagent.plist</key>
 	<string>Enable a launchagent as a user when run as root (deprecated in 10.10).</string>
 	<key>launchctl bootout gui/&lt;UID&gt; /Library/LaunchAgents/com.foo.launchagent.plist</key>
@@ -338,10 +356,16 @@
 	<string>View Notification Center logs to determine the correct bundleidentifier to whitelist.</string>
 	<key>log show --debug --predicate 'subsystem == "com.apple.TCC" AND eventMessage BEGINSWITH "AttributionChain"'</key>
 	<string>View AttributionChain logs to determine the correct bundleidentifier to whitelist.</string>
+	<key>log show --predicate '(subsystem == "com.apple.CryptoTokenKit")' --info --debug --last 24h</key>
+	<string>Gather logs pertaining to CryptoTokenKit.</string>
 	<key>log show -predicate 'eventMessage contains "error"'</key>
 	<string>Display logs with an error string.</string>
+	<key>log stream --debug --info --predicate='(eventMessage contains[c] "sudo") OR (process == "sudo")'</key>
+	<string>Gather logs pertaining to processes run with sudo.</string>
 	<key>log stream --debug --predicate 'subsystem == "com.apple.TCC"</key>
 	<string>Show TCC log events.</string>
+	<key>log stream --info --debug --style syslog --predicate 'subsystem == "com.apple.ManagedClient"'</key>
+	<string>Get logs pertaining to ManagedClient (MDM).</string>
 	<key>logger -is</key>
 	<string>Log the process id and message to stderr and syslog.</string>
 	<key>lpadmin -p "$printer_name" -o printer-is-shared=false</key>
@@ -706,6 +730,8 @@
 	<string>Read file into tcpdump.</string>
 	<key>telnet towel.blinkenlights.nl 666</key>
 	<string>Return a handy line from the BOFH Excuse Server.</string>
+	<key>time python -c 'import socket; socket.getaddrinfo("google.com", 443, socket.AF_UNSPEC, socket.SOCK_STREAM)'</key>
+	<string>Check latency for connecting to an address.</string>
 	<key>time read</key>
 	<string>Run a simple stopwatch. Press enter to stop.</string>
 	<key>time read -t 60</key>
