@@ -366,6 +366,8 @@
 	<string>Show TCC log events.</string>
 	<key>log stream --info --debug --style syslog --predicate 'subsystem == "com.apple.ManagedClient"'</key>
 	<string>Get logs pertaining to ManagedClient (MDM).</string>
+	<key>log stream --predicate 'processImagePath CONTAINS[cd] "CertificateService" OR processImagePath CONTAINS[cd] "mdmclient"'</key>
+	<string>Return logs about mdmclient and the scep exchange</string>
 	<key>logger -is</key>
 	<string>Log the process id and message to stderr and syslog.</string>
 	<key>lpadmin -p "$printer_name" -o printer-is-shared=false</key>
