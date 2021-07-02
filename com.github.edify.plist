@@ -26,6 +26,10 @@
 	<string>Get information about the airport connection.</string>
 	<key>/System/Library/PrivateFrameworks/Apple80211.framework/Versions/A/Resources/airport -s</key>
 	<string>Scan available wireless networks.</string>
+	<key>/System/Library/PrivateFrameworks/ApplePushService.framework/apsctl status | grep 'com.apple.aps.mdmclient.daemon.push.production' -A23</key>
+	<string>Show information for your mdmclient since last reboot.</string>
+	<key>/System/Library/PrivateFrameworks/ApplePushService.framework/apsctl status | grep 'connection environment:' -A21</key>
+	<string>Show connectivity summaries for MDM environments.</string>
 	<key>/System/Library/PrivateFrameworks/Seeding.framework/Resources/seedutil enroll CATALOG</key>
 	<string>Configure a software update appleseed catalog (CustomerSeed, DeveloperSeed, PublicSeed).</string>
 	<key>/System/Library/PrivateFrameworks/SystemAdministration.framework/Versions/A/Resources/DirectoryTools -repairPermissions username</key>
