@@ -280,6 +280,8 @@
 	<string>Get serial number of current Mac.</string>
 	<key>ioreg -c IOPlatformExpertDevice -d 2 |awk '/IOPlatformUUID/ {print $3}' |sed s/\"//g </key>
 	<string>Get uuid of the current Mac.</string>
+	<key>ioreg -w 0 -c IOPlatformDevice -d 4 | awk -F '" = &lt;"|"&gt;$' '/product-name/ {print $2}'</key>
+	<string>Return the Product (Marketing) Name of the mac model.</string>
 	<key>iostat -d disk0</key>
 	<string>Display device io statistics.</string>
 	<key>ipconfig getifaddr en0</key>
@@ -362,6 +364,8 @@
 	<string>View AttributionChain logs to determine the correct bundleidentifier to whitelist.</string>
 	<key>log show --predicate '(subsystem == "com.apple.CryptoTokenKit")' --info --debug --last 24h</key>
 	<string>Gather logs pertaining to CryptoTokenKit.</string>
+	<key>log show --predicate 'subsystem == "com.apple.SoftwareUpdate"'</key>
+	<string>Show logs from Software Update process.</string>
 	<key>log show -predicate 'eventMessage contains "error"'</key>
 	<string>Display logs with an error string.</string>
 	<key>log stream --debug --info --predicate='(eventMessage contains[c] "sudo") OR (process == "sudo")'</key>
