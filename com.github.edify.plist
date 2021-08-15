@@ -306,8 +306,14 @@
 	<string>Restart the Touch Bar Control Strip dingus.</string>
 	<key>killall cfprefsd</key>
 	<string>Restart the cfprefsd process.</string>
+	<key>kmutil clear-staging</key>
+	<string>Clear the contents of the staging directory /Library/StagedExtensions.</string>
+	<key>kmutil inspect</key>
+	<string>Lists all currently installed kernel extensions according to their collection.</string>
 	<key>kmutil trigger-panic-medic --volume-root /Volumes/Macintosh\ HD</key>
 	<string>Clear out all registered KEXTS while booted to RecoveryOS.</string>
+	<key>kmutil unload -p /path/kextname.kext</key>
+	<string>Unloads the kernel extension specified by /path/kextname.kext. This terminates and unloads it, but may not remove the original kernel extension or a staged copy.</string>
 	<key>launchctl asuser &lt;user&gt; /bin/launchctl load /Library/LaunchAgents/com.foo.launchagent.plist</key>
 	<string>Enable a launchagent as a user when run as root (deprecated in 10.10).</string>
 	<key>launchctl bootout gui/&lt;UID&gt; /Library/LaunchAgents/com.foo.launchagent.plist</key>
