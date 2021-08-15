@@ -370,6 +370,8 @@
 	<string>Display logs with an error string.</string>
 	<key>log stream --debug --info --predicate='(eventMessage contains[c] "sudo") OR (process == "sudo")'</key>
 	<string>Gather logs pertaining to processes run with sudo.</string>
+	<key>log stream --debug --predicate 'process == "cfprefsd" &amp;&amp; eventMessage CONTAINS "wrote the key"'</key>
+	<string>Inspect cfprefsd to determine changed preferences in progress.</string>
 	<key>log stream --debug --predicate 'subsystem == "com.apple.TCC"</key>
 	<string>Show TCC log events.</string>
 	<key>log stream --info --debug --style syslog --predicate 'subsystem == "com.apple.ManagedClient"'</key>
