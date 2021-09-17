@@ -512,6 +512,8 @@
 	<string>Verify the SHA1 digest of a downloaded file, such as an update from Apple support.</string>
 	<key>openssl x509 -checkend 0 -noout -in /path/to/cert.pem</key>
 	<string>Check validity of a cert.</string>
+	<key>openssl x509 -noout -subject -in /path/to/cert.pem</key>
+	<string>Get CN out of cert using openssl.</string>
 	<key>osascript -e 'set volume output muted true'</key>
 	<string>Mute the volume using applescript.</string>
 	<key>osqueryi --disable_extensions --disable_events --flagfile=</key>
@@ -566,6 +568,8 @@
 	<string>Require a new password for local user foo.</string>
 	<key>pydoc -g</key>
 	<string>Open python docs in a browser.</string>
+	<key>python -c "from Foundation import CFPreferencesCopyAppValue ; print CFPreferencesCopyAppValue('CatalogURL', 'com.apple.SoftwareUpdate')"</key>
+	<string>Return the current Software Update preferences.</string>
 	<key>python -c "import site; print site.getsitepackages()"</key>
 	<string>Display the site-packages directories used by python.</string>
 	<key>python -c 'import this'</key>
