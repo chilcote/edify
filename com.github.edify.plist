@@ -382,6 +382,8 @@
 	<string>Show TCC log events.</string>
 	<key>log stream --info --debug --style syslog --predicate 'subsystem == "com.apple.ManagedClient"'</key>
 	<string>Get logs pertaining to ManagedClient (MDM).</string>
+	<key>log stream --predicate "subsystem == 'com.github.macadmins.Nudge'" --info --style syslog</key>
+	<string>Stream Nudge logs.</string>
 	<key>log stream --predicate 'processImagePath CONTAINS[cd] "CertificateService" OR processImagePath CONTAINS[cd] "mdmclient"'</key>
 	<string>Return logs about mdmclient and the scep exchange</string>
 	<key>logger -is</key>
@@ -482,6 +484,8 @@
 	<string>Disable a network service.</string>
 	<key>networksetup -setsearchdomains INTERFACE empty</key>
 	<string>Use 'empty' to clear the manually-set search domains'</string>
+	<key>nscurl --ats-diagnostics --verbose https://example.com</key>
+	<string>Display ATS diagnostic for URL.</string>
 	<key>nvram -p</key>
 	<string>Display all nvram variables.</string>
 	<key>nvram internet-recovery-mode=DiagsModeDisk</key>
@@ -512,6 +516,10 @@
 	<string>Verify the SHA1 digest of a downloaded file, such as an update from Apple support.</string>
 	<key>openssl x509 -checkend 0 -noout -in /path/to/cert.pem</key>
 	<string>Check validity of a cert.</string>
+	<key>openssl x509 -noout -enddate -in /path/to/cert.pem</key>
+	<string>Get NotAfter of cert using openssl.</string>
+	<key>openssl x509 -noout -startdate -in /path/to/cert.pem</key>
+	<string>Get NotBefore of cert using openssl.</string>
 	<key>openssl x509 -noout -subject -in /path/to/cert.pem</key>
 	<string>Get CN out of cert using openssl.</string>
 	<key>osascript -e 'set volume output muted true'</key>
