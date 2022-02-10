@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 
 """
 This script displays information on commonly run commands.
@@ -71,7 +71,8 @@ def add_item(d, plist):
     notes = input("Enter description: ")
     a[command] = notes
     try:
-        plistlib.writePlist(a, plist)
+        with open(plist, 'wb') as f:
+            plistlib.dump(a, f)
     except UnicodeDecodeError:
         print(
             colored(
@@ -81,7 +82,8 @@ def add_item(d, plist):
             )
         )
         print(colored("Command: %s" % command, "cyan"))
-        plistlib.writePlist(d, plist)
+        with open (plist, 'wb') as f:
+            plistlib.dump(d, f)
         sys.exit(1)
     print_item(command, notes)
 
@@ -112,26 +114,29 @@ def main():
 
     # Instantiate variables
     d = {}
-    master_plist = os.path.join(os.getcwd(), "com.github.edify.plist")
+    main_plist = os.path.join(os.getcwd(), "com.github.edify.plist")
     cached_plist = "/usr/local/share/edify/com.github.edify.plist"
     local_plist = os.path.expanduser(
         "~/Library/Application Support/edify/com.github.edify.plist"
     )
 
     if args.edit:
-        if os.path.exists(master_plist):
+        if os.path.exists(main_plist):
             print(colored("Master Edit Mode", "yellow"))
-            d = plistlib.readPlist(master_plist)
+            with open(main_plist, 'rb') as f:
+                d = plistlib.load(f)
         else:
             print(colored("Master plist must be in the current directory.", "red"))
             sys.exit(1)
-        add_item(d, master_plist)
+        add_item(d, main_plist)
         sys.exit(0)
 
     if os.path.exists(cached_plist):
-        d = plistlib.readPlist(cached_plist)
+        with open(cached_plist, 'rb') as f:
+            d = plistlib.load(f)
         if os.path.exists(local_plist):
-            d.update(plistlib.readPlist(local_plist))
+            with open(cached_plist, 'rb') as f:
+                d.update(plistlib.load(f))
     else:
         print(colored("File not found: %s\nPlease reinstall" % cached_plist, "red"))
         sys.exit(1)
@@ -145,7 +150,8 @@ def main():
         if not os.path.exists(os.path.dirname(local_plist)):
             os.mkdir(os.path.dirname(local_plist))
         if os.path.exists(local_plist):
-            d = plistlib.readPlist(local_plist)
+            with open(local_plist, 'rb') as f:
+                d = plistlib.load(f)
         add_item(d, local_plist)
     else:
         parser.print_help()
