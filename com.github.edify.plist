@@ -634,6 +634,8 @@
 	<string>Returns the short version no. of Server.app.</string>
 	<key>serverinfo --software</key>
 	<string>See if Server.app is installed.</string>
+	<key>softwareupdate --fetch-full-installer --full-installer-version 12.2</key>
+	<string>Download the full installer with softwareupdate.</string>
 	<key>spctl -a -t exec -vv /Applications/Foo.app</key>
 	<string>Check to see if an app is allowed with Gatekeeper.</string>
 	<key>sqlite3 ~/Library/Preferences/com.apple.LaunchServices.QuarantineEventsV* 'delete from LSQuarantineEvent'</key>
@@ -654,8 +656,12 @@
 	<string>Get the modification date of the XProtect plist (when it was last updated).</string>
 	<key>stat -x foo</key>
 	<string>Get info on a file.</string>
+	<key>sudo "/Applications/Cisco/Cisco AnyConnect Socket Filter.app/Contents/MacOS/Cisco AnyConnect Socket Filter" -deactivateExt</key>
+	<string>Unload the AnyConnect system network extension.</string>
 	<key>sudo /Applications/Install\ OS\ X\ Mavericks.app/Contents/Resources/createinstallmedia --volume /path/to/media --applicationpath /Applications/Install\ OS\ X\ Mavericks.app --nointeraction</key>
 	<string>Create Mavericks install media.</string>
+	<key>sudo /Applications/Santa.app/Contents/MacOS/Santa --unload-system-extension</key>
+	<string>Unload the santa system extension.</string>
 	<key>sudo /System/Library/Frameworks/CoreServices.framework/Versions/Current/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user</key>
 	<string>Reset launch services database.</string>
 	<key>sudo chflags nouchg foo</key>
@@ -682,6 +688,8 @@
 	<string>Part of dtrace, presents a top-like listing. On a sluggish machine, one could track the drive activity to determine what was slowing a system down.</string>
 	<key>sudo killall -HUP mDNSResponder</key>
 	<string>Reset the DNS cache (10.7+).</string>
+	<key>sudo launchctl kickstart -k system/com.apple.softwareupdated</key>
+	<string>Kickstart the softwareupdate process.</string>
 	<key>sudo mdutil -E /Volumes/foo</key>
 	<string>Force spotlight index to be rebuilt.</string>
 	<key>sudo nvram boot-args="-v"</key>
