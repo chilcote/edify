@@ -82,6 +82,10 @@
 	<string>Add a user to the ssh access group.</string>
 	<key>/usr/sbin/scutil -w State:/Network/Global/DNS -t 180</key>
 	<string>A way to wait for network to be active before proceeding in a script.</string>
+	<key>Enable root from RecoveryOS (Apple Silicon)</key>
+	<string>dscl -f /Volumes/Data/private/var/db/dslocal/nodes/Default localhost -passwd /Local/Default/Users/root</string>
+	<key>Enable root from RecoveryOS (Intel)</key>
+	<string>dscl -f /Volumes/Macintosh\ HD\ -\ Data/private/var/db/dslocal/nodes/Default localhost -passwd /Local/Default/Users/root</string>
 	<key>Profiles -Lo stdout-xml</key>
 	<string>Print the contents/settings of a config profile</string>
 	<key>ac -p | sort -nrk 2 | awk 'NR == 2 { print $1; exit }'</key>
