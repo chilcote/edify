@@ -638,6 +638,8 @@
 	<string>Returns the short version no. of Server.app.</string>
 	<key>serverinfo --software</key>
 	<string>See if Server.app is installed.</string>
+	<key>sfltool dumpbtm</key>
+	<string>Lists information about login items | background tasks | service management</string>
 	<key>softwareupdate --fetch-full-installer --full-installer-version 12.2</key>
 	<string>Download the full installer with softwareupdate.</string>
 	<key>spctl -a -t exec -vv /Applications/Foo.app</key>
