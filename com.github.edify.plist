@@ -136,6 +136,8 @@
 	<string>Use brackets to copy a file, making several backups, renaming in place.</string>
 	<key>createhomedir -c</key>
 	<string>Initiate home directories for local accounts.</string>
+	<key>curl -s https://mesu.apple.com/assets/macos/com_apple_macOSIPSW/com_apple_macOSIPSW.xml | grep "\.ipsw" | tr -d '\t' | uniq | xmllint --xpath '/string/text()' -</key>
+	<string>Grab the URL of the current macOS IPSW</string>
 	<key>curl ipecho.net/plain</key>
 	<string>Returns your external facing IP address. Ref: http://krypted.com/mac-security/grab-your-wan-ip-in-scripts/</string>
 	<key>date "+%Y%m%d"</key>
