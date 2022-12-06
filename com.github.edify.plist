@@ -382,6 +382,8 @@
 	<string>Show logs regarding mdmclient failed responses to push notifcations.</string>
 	<key>log show --predicate '(subsystem == "com.apple.CryptoTokenKit")' --info --debug --last 24h</key>
 	<string>Gather logs pertaining to CryptoTokenKit.</string>
+	<key>log show --predicate 'subsystem = "com.apple.backgroundtaskmanagement" and category == "mcx"' --debug</key>
+	<string>Show logs for Background Task Management aka ServiceManagement aka Login Items aka lauhchd</string>
 	<key>log show --predicate 'subsystem == "com.apple.SoftwareUpdate"'</key>
 	<string>Show logs from Software Update process.</string>
 	<key>log show -predicate 'eventMessage contains "error"'</key>
