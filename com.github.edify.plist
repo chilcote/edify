@@ -40,8 +40,6 @@
 	<string>Reset SIP (10.12.2 and above)</string>
 	<key>/usr/bin/defaults read /Library/Preferences/com.apple.alf globalstate</key>
 	<string>Get the status of the firewall state (0 = off; 1 = on)</string>
-	<key>/usr/bin/log show --predicate '(subsystem == "com.grahamgilbert.crypt")' --style syslog --debug --info --last 24h</key>
-	<string>Show crypt logs.</string>
 	<key>/usr/bin/open "x-apple.systempreferences:com.apple.preferences.softwareupdate?client=bau&amp;installMajorOSBundle=com.apple.InstallAssistant.Seed.macOS1015Seed1"</key>
 	<string>Grab the Catalina seed installer.</string>
 	<key>/usr/bin/security authorizationdb read system.login.console</key>
@@ -370,38 +368,70 @@
 	<string>Similar to tail -f, but can ctrl-c out to vim mode.</string>
 	<key>ln -s original link</key>
 	<string>Create a symlink.</string>
-	<key>log show --debug --info --signpost --predicate 'subsystem contains "com.apple.unc"'</key>
-	<string>View Notification Center logs to determine the correct bundleidentifier to whitelist.</string>
-	<key>log show --debug --predicate 'subsystem == "com.apple.TCC" AND eventMessage BEGINSWITH "AttributionChain"'</key>
-	<string>View AttributionChain logs to determine the correct bundleidentifier to whitelist.</string>
-	<key>log show --info --debug --predicate 'process == "pythonprompt" AND eventMessage contains[cd] "Showing alert"'</key>
-	<string>Show logs that trigger the python deprecation prompt.</string>
-	<key>log show --pager --info --debug --predicate 'subsystem == "com.apple.ManagedClient"' | grep "Acknowledged"</key>
+	<key>log show --debug --info --pager --predicate '(subsystem == "com.apple.ManagedClient" AND eventMessage CONTAINS[cd] "Acknowledged")'</key>
 	<string>Show logs regarding mdmclient responses to push notifications.</string>
-	<key>log show --pager --info --debug --predicate 'subsystem == "com.apple.ManagedClient"' | grep "Canceling"</key>
+	<key>log show --debug --info --pager --predicate '(subsystem == "com.apple.ManagedClient" AND eventMessage CONTAINS[cd] "Canceled")'</key>
 	<string>Show logs regarding mdmclient failed responses to push notifcations.</string>
-	<key>log show --predicate '(subsystem == "com.apple.CryptoTokenKit")' --info --debug --last 24h</key>
-	<string>Gather logs pertaining to CryptoTokenKit.</string>
-	<key>log show --predicate 'subsystem = "com.apple.backgroundtaskmanagement" and category == "mcx"' --debug</key>
-	<string>Show logs for Background Task Management aka ServiceManagement aka Login Items aka lauhchd</string>
-	<key>log show --predicate 'subsystem == "com.apple.SoftwareUpdate"'</key>
-	<string>Show logs from Software Update process.</string>
-	<key>log show -predicate 'eventMessage contains "error"'</key>
-	<string>Display logs with an error string.</string>
-	<key>log stream --debug --info --predicate 'subsystem == "com.apple.networkextension"'</key>
-	<string>Show logs regarding network extensions.</string>
-	<key>log stream --debug --info --predicate='(eventMessage contains[c] "sudo") OR (process == "sudo")'</key>
+	<key>log show --debug --info --predicate '(eventMessage CONTAINS[cd] "sudo") OR (process == "sudo")' --last 1d</key>
 	<string>Gather logs pertaining to processes run with sudo.</string>
-	<key>log stream --debug --predicate 'process == "cfprefsd" &amp;&amp; eventMessage CONTAINS "wrote the key"'</key>
-	<string>Inspect cfprefsd to determine changed preferences in progress.</string>
-	<key>log stream --debug --predicate 'subsystem == "com.apple.TCC"</key>
-	<string>Show TCC log events.</string>
-	<key>log stream --info --debug --style syslog --predicate 'subsystem == "com.apple.ManagedClient"'</key>
-	<string>Get logs pertaining to ManagedClient (MDM).</string>
-	<key>log stream --predicate "subsystem == 'com.github.macadmins.Nudge'" --info --style syslog</key>
-	<string>Stream Nudge logs.</string>
-	<key>log stream --predicate 'processImagePath CONTAINS[cd] "CertificateService" OR processImagePath CONTAINS[cd] "mdmclient"'</key>
+	<key>log show --debug --info --predicate '(process == "CertificateService" OR process == "mdmclient")'</key>
 	<string>Return logs about mdmclient and the scep exchange</string>
+	<key>log show --debug --info --predicate '(process == "apsd" AND subsystem == "com.apple.apsd")' --last 1h</key>
+	<string>Return logs related to APNs (Apple Push Notification System).</string>
+	<key>log show --debug --info --predicate '(process == "cfprefsd" AND eventMessage CONTAINS[cd] "wrote the key")' --last 1d</key>
+	<string>Inspect cfprefsd to determine changed preferences in progress.</string>
+	<key>log show --debug --info --predicate '(process == "loginwindow" AND subsystem == "com.apple.login")' --last 1d</key>
+	<string>Return logs related to user login.</string>
+	<key>log show --debug --info --predicate '(process == "mdmclient" AND subsystem == "com.apple.ManagedClient")' --last 1h</key>
+	<string>Return logs related to mdmclient (ManagedClient).</string>
+	<key>log show --debug --info --predicate '(process == "mobileactivationd" AND subsystem == "com.apple.MobileActivation")'</key>
+	<string>Return logs related to mobileactivationd (Activation Lock, DEP Enrollment).</string>
+	<key>log show --debug --info --predicate '(process == "opendirectoryd" AND subsystem IN { "com.apple.opendirectoryd", "com.apple.AccountPolicy" })' --last 1h</key>
+	<string>Return logs related to Open Directory.</string>
+	<key>log show --debug --info --predicate '(process == "pythonprompt" AND eventMessage CONTAINS[cd] "Showing alert")'</key>
+	<string>Show logs that trigger the python deprecation prompt.</string>
+	<key>log show --debug --info --predicate '(process == "softwareupdated" AND subsystem IN { "com.apple.SotwareUpdate", "com.apple.mac.install", "com.apple.SoftwareUpdateMacController", "com.apple.mobileassetd" })' --last 1d</key>
+	<string>Return logs related to softwareupdated and Software Update.</string>
+	<key>log show --debug --info --predicate '(process == "softwareupdated")' --last 1d</key>
+	<string>Return logs related to softwareupdated.</string>
+	<key>log show --debug --info --predicate '(process == "syspolicyd" AND subsystem == "com.apple.syspolicy.exec")' --last 1h</key>
+	<string>Return logs related to Gatekeeper.</string>
+	<key>log show --debug --info --predicate '(subsystem == "com.apple.AssetCache")' --last 1d</key>
+	<string>Return logs related to Apple Content Caching.</string>
+	<key>log show --debug --info --predicate '(subsystem == "com.apple.ManagedClient" AND category == "OSUpdate")' --last 1d</key>
+	<string>Return logs regarding MDM software update commands (e.g. InstallASAP)</string>
+	<key>log show --debug --info --predicate '(subsystem == "com.apple.TCC" AND eventMessage BEGINSWITH[cd] "AttributionChain")' --last 1h</key>
+	<string>View AttributionChain logs to determine the correct bundleidentifier to allowlist.</string>
+	<key>log show --debug --info --predicate '(subsystem == "com.apple.backgroundtaskmanagement" AND category == "mcx")'</key>
+	<string>Show logs for Background Task Management aka ServiceManagement aka Login Items aka launchd</string>
+	<key>log show --debug --info --predicate '(subsystem == "com.apple.network" AND category IN { "connection", "boringssl" })' --last 1h</key>
+	<string>Return logs related to Networking.</string>
+	<key>log show --debug --info --predicate '(subsystem == "com.apple.securityd" AND category == "ocsp")' --last 1h</key>
+	<string>Return logs related to OCSP (Certificate validity).</string>
+	<key>log show --debug --info --predicate '(subsystem == "com.apple.sharing" AND category == "AirDrop" AND eventMessage CONTAINS[cd] "Discoverable mode changed")'</key>
+	<string>Return logs related to AirDrop discoverable mode.</string>
+	<key>log show --debug --info --predicate '(subsystem == "com.apple.sharing" AND category == "AutoUnlock")' --last 1h</key>
+	<string>Return logs related to Apple Watch unlock (AutoUnlock).</string>
+	<key>log show --debug --info --predicate '(subsystem=="com.grahamgilbert.crypt")' --style syslog --last 1d</key>
+	<string>Show crypt logs.</string>
+	<key>log show --debug --info --predicate 'eventMessage CONTAINS[cd] "error"' --last 1h</key>
+	<string>Display logs with an error string.</string>
+	<key>log show --debug --info --predicate 'subsystem == "com.apple.CryptoTokenKit"' --last 1d</key>
+	<string>Gather logs pertaining to CryptoTokenKit.</string>
+	<key>log show --debug --info --predicate 'subsystem == "com.apple.ManagedClient"'</key>
+	<string>Get logs pertaining to ManagedClient (MDM).</string>
+	<key>log show --debug --info --predicate 'subsystem == "com.apple.SoftwareUpdate"'</key>
+	<string>Show logs from Software Update process.</string>
+	<key>log show --debug --info --predicate 'subsystem == "com.apple.TCC"' --last 1h</key>
+	<string>Show TCC log events.</string>
+	<key>log show --debug --info --predicate 'subsystem == "com.apple.networkextension"' --last 1h</key>
+	<string>Show logs regarding network extensions.</string>
+	<key>log show --debug --info --predicate 'subsystem == "com.apple.xprotect"' --last 1d</key>
+	<string>Return logs related to XProtect.</string>
+	<key>log show --debug --info --signpost --predicate 'subsystem CONTAINS[cd] "com.apple.unc"'</key>
+	<string>View Notification Center logs to determine the correct bundleidentifier to allowlist.</string>
+	<key>log show --debug --info --style syslog --predicate "subsystem == 'com.github.macadmins.Nudge'"</key>
+	<string>Stream Nudge logs.</string>
 	<key>logger -is</key>
 	<string>Log the process id and message to stderr and syslog.</string>
 	<key>lpadmin -p "$printer_name" -o printer-is-shared=false</key>
