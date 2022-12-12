@@ -578,6 +578,8 @@
 	<string>See processes by a specific app, for example Chrome.</string>
 	<key>pgrep Safari</key>
 	<string>Get the process of a running app.</string>
+	<key>pkgutil --check-signature /path/to/pkg</key>
+	<string>Check signature of package (pkg) installer.</string>
 	<key>pkgutil --file-info /path/to/file</key>
 	<string>See which package installed a file or binary.</string>
 	<key>pkgutil --files pkg-id</key>
@@ -678,6 +680,8 @@
 	<string>Download the full installer with softwareupdate.</string>
 	<key>spctl -a -t exec -vv /Applications/Foo.app</key>
 	<string>Check to see if an app is allowed with Gatekeeper.</string>
+	<key>spctl -a -t install -vv /path/to/pkg</key>
+	<string>Check to see if a package installer is signed.</string>
 	<key>sqlite3 ~/Library/Preferences/com.apple.LaunchServices.QuarantineEventsV* 'delete from LSQuarantineEvent'</key>
 	<string>Delete history of files with the quarantine bit (i.e. files that have been downloaded).</string>
 	<key>sqlite3 ~/Library/Preferences/com.apple.LaunchServices.QuarantineEventsV* 'select LSQuarantineDataURLString from LSQuarantineEvent' | sort</key>
