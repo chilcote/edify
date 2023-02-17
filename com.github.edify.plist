@@ -656,8 +656,6 @@
 	<string>Prints the current dns configuration.</string>
 	<key>scutil -r foo</key>
 	<string>Check if host 'foo' is reachable.</string>
-	<key>security cms -D -i foo.mobileconfig</key>
-	<string>Convert mobileconfig file to xml.</string>
 	<key>security cms -D -i signed.mobileconfig</key>
 	<string>Read a signed (binary) mobileconfig AKA configuration profile.</string>
 	<key>sed '/^$/d' file.txt</key>
