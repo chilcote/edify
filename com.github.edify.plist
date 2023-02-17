@@ -560,6 +560,8 @@
 	<string>Encrypt a file with a password.</string>
 	<key>openssl sha1 /path/to/foo.dmg</key>
 	<string>Verify the SHA1 digest of a downloaded file, such as an update from Apple support.</string>
+	<key>openssl smime -inform DER -verify -in signed.mobileconfig -noverify -out unsigned.mobileconfig</key>
+	<string>Convert a signed (binary) mobileconfig AKA configuration profile.</string>
 	<key>openssl x509 -checkend 0 -noout -in /path/to/cert.pem</key>
 	<string>Check validity of a cert.</string>
 	<key>openssl x509 -noout -enddate -in /path/to/cert.pem</key>
@@ -656,6 +658,8 @@
 	<string>Check if host 'foo' is reachable.</string>
 	<key>security cms -D -i foo.mobileconfig</key>
 	<string>Convert mobileconfig file to xml.</string>
+	<key>security cms -D -i signed.mobileconfig</key>
+	<string>Read a signed (binary) mobileconfig AKA configuration profile.</string>
 	<key>sed '/^$/d' file.txt</key>
 	<string>Remove empty lines from a file (via http://krypted.com/mac-os-x/remove-empty-lines-from-a-file/)</string>
 	<key>sed -e 's/\([0-9A-Fa-f]\{2\}\)/\1:/g' -e 's/\(.*\):$/\1/' foo.txt</key>
