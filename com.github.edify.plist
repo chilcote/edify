@@ -736,6 +736,8 @@
 	<string>Reset the DNS cache (10.7+).</string>
 	<key>sudo launchctl kickstart -k system/com.apple.softwareupdated</key>
 	<string>Kickstart the softwareupdate process.</string>
+	<key>sudo launchctl procinfo &lt;PID&gt; |grep responsible</key>
+	<string>Find the responsible process for a child process (useful for TCC/PPPC).</string>
 	<key>sudo mdutil -E /Volumes/foo</key>
 	<string>Force spotlight index to be rebuilt.</string>
 	<key>sudo nvram boot-args="-v"</key>
