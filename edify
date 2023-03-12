@@ -24,7 +24,7 @@ Requirements:
 
 
 __author__ = "Joseph Chilcote (chilcote@gmail.com)"
-__version__ = "0.2.0"
+__version__ = "0.2.1"
 
 import argparse
 import os
@@ -90,12 +90,13 @@ def add_item(d, plist):
 
 def search_items(d, search_term):
     for k, v in sorted(d.items()):
-        if search_term.lower() in k.lower() or search_term.lower() in v.lower():
+        if all(s.lower() in k.lower() for s in search_term) or all(s.lower() in v.lower() for s in search_term):
             print_item(k, v)
 
 
 def print_item(k, v):
-    li = textwrap.wrap(v, 80)
+    print('---')
+    li = textwrap.wrap(v, 120)
     for i in li:
         print(colored("## %s" % i, "yellow"))
     print(colored("%s\n" % k, "cyan"))
@@ -109,7 +110,7 @@ def main():
     )
     parser.add_argument("-e", "--edit", help=argparse.SUPPRESS, action="store_true")
     parser.add_argument("-l", "--list", help="List all entries", action="store_true")
-    parser.add_argument("-g", "--grep", help="Search entries for string")
+    parser.add_argument("-g", "--grep", nargs='*', help="Search entries for string")
     args = parser.parse_args()
 
     # Instantiate variables
@@ -135,7 +136,7 @@ def main():
         with open(cached_plist, 'rb') as f:
             d = plistlib.load(f)
         if os.path.exists(local_plist):
-            with open(cached_plist, 'rb') as f:
+            with open(local_plist, 'rb') as f:
                 d.update(plistlib.load(f))
     else:
         print(colored("File not found: %s\nPlease reinstall" % cached_plist, "red"))
