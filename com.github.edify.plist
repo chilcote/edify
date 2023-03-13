@@ -380,123 +380,123 @@
 	<string>Similar to tail -f, but can ctrl-c out to vim mode.</string>
 	<key>ln -s original link</key>
 	<string>Create a symlink.</string>
-	<key>log show --info --debug --predicate '(process IN { "configd", "Setup Assistant" }) || (process == "mDNSResponder" &amp;&amp; subsystem == "com.apple.mdns" AND category == "resolver")'</key>
+	<key>log show --debug --predicate '(process IN { "configd", "Setup Assistant" }) || (process == "mDNSResponder" &amp;&amp; subsystem == "com.apple.mdns" AND category == "resolver")'</key>
 	<string>Return logs regarding DNS resolution during setup assistant</string>
-	<key>log show --info --debug --predicate 'process == "SoftwareUpdateNotificationManager" &amp;&amp; eventMessage CONTAINS[cd] "SUOSURestartCountdownOperation"'</key>
+	<key>log show --debug --predicate 'process == "SoftwareUpdateNotificationManager" &amp;&amp; eventMessage CONTAINS[cd] "SUOSURestartCountdownOperation"'</key>
 	<string>Return logs for softwareupdate countdown notifications.</string>
-	<key>log show --info --debug --predicate 'process == "apsd" &amp;&amp; subsystem == "com.apple.apsd"'</key>
+	<key>log show --debug --predicate 'process == "apsd" &amp;&amp; subsystem == "com.apple.apsd"'</key>
 	<string>Return logs related to APNs (Apple Push Notification System).</string>
-	<key>log show --info --debug --predicate 'process == "cfprefsd" &amp;&amp; eventMessage CONTAINS[cd] "wrote the key"'</key>
+	<key>log show --debug --predicate 'process == "cfprefsd" &amp;&amp; eventMessage CONTAINS[cd] "wrote the key"'</key>
 	<string>Inspect cfprefsd to determine changed preferences in progress.</string>
-	<key>log show --info --debug --predicate 'process == "com.apple.MobileSoftwareUpdate.UpdateBrainService" &amp;&amp; eventMessage CONTAINS[cd] "SEP command" &amp;&amp; !(eventMessage CONTAINS[cd] "returned 0")'</key>
+	<key>log show --debug --predicate 'process == "com.apple.MobileSoftwareUpdate.UpdateBrainService" &amp;&amp; eventMessage CONTAINS[cd] "SEP command" &amp;&amp; !(eventMessage CONTAINS[cd] "returned 0")'</key>
 	<string>Return logs for softwareupdate and boot policy errors (secure enclave aka sep).</string>
-	<key>log show --info --debug --predicate 'process == "loginwindow" &amp;&amp; subsystem == "com.apple.login"'</key>
+	<key>log show --debug --predicate 'process == "loginwindow" &amp;&amp; subsystem == "com.apple.login"'</key>
 	<string>Return logs related to user login.</string>
-	<key>log show --info --debug --predicate 'process == "mdmclient" &amp;&amp; category == "HTTPUtil" &amp;&amp; eventMessage CONTAINS[cd] "BootstrapToken"'</key>
+	<key>log show --debug --predicate 'process == "mdmclient" &amp;&amp; category == "HTTPUtil" &amp;&amp; eventMessage CONTAINS[cd] "BootstrapToken"'</key>
 	<string>Return logs for mdmclient requesting the bootstraptoken.</string>
-	<key>log show --info --debug --predicate 'process == "mdmclient" &amp;&amp; category == "HTTPUtil"'</key>
+	<key>log show --debug --predicate 'process == "mdmclient" &amp;&amp; category == "HTTPUtil"'</key>
 	<string>Return logs for mdmclient communicating with the server.</string>
-	<key>log show --info --debug --predicate 'process == "mdmclient" &amp;&amp; eventMessage CONTAINS[cd] "BootstrapToken"'</key>
+	<key>log show --debug --predicate 'process == "mdmclient" &amp;&amp; eventMessage CONTAINS[cd] "BootstrapToken"'</key>
 	<string>Return logs related to bootstraptoken requests via mdmclient.</string>
-	<key>log show --info --debug --predicate 'process == "mdmclient" &amp;&amp; eventMessage CONTAINS[cd] "MDM Requested"'</key>
+	<key>log show --debug --predicate 'process == "mdmclient" &amp;&amp; eventMessage CONTAINS[cd] "MDM Requested"'</key>
 	<string>Return logs for softwareupdate commands initiated by MDM.</string>
-	<key>log show --info --debug --predicate 'process == "mdmclient" &amp;&amp; eventMessage CONTAINS[cd] "Processing server request"'</key>
+	<key>log show --debug --predicate 'process == "mdmclient" &amp;&amp; eventMessage CONTAINS[cd] "Processing server request"'</key>
 	<string>Return logs for all commands initiated by MDM.</string>
-	<key>log show --info --debug --predicate 'process == "mdmclient" &amp;&amp; subsystem == "com.apple.ManagedClient"'</key>
+	<key>log show --debug --predicate 'process == "mdmclient" &amp;&amp; subsystem == "com.apple.ManagedClient"'</key>
 	<string>Return logs related to mdmclient (ManagedClient).</string>
-	<key>log show --info --debug --predicate 'process == "mobileactivationd" &amp;&amp; subsystem == "com.apple.MobileActivation"'</key>
+	<key>log show --debug --predicate 'process == "mobileactivationd" &amp;&amp; subsystem == "com.apple.MobileActivation"'</key>
 	<string>Return logs related to mobileactivationd (Activation Lock, DEP Enrollment).</string>
-	<key>log show --info --debug --predicate 'process == "opendirectoryd" &amp;&amp; subsystem IN { "com.apple.opendirectoryd", "com.apple.AccountPolicy" }'</key>
+	<key>log show --debug --predicate 'process == "opendirectoryd" &amp;&amp; subsystem IN { "com.apple.opendirectoryd", "com.apple.AccountPolicy" }'</key>
 	<string>Return logs related to Open Directory.</string>
-	<key>log show --info --debug --predicate 'process == "pythonprompt" &amp;&amp; eventMessage CONTAINS[cd] "Showing alert"'</key>
+	<key>log show --debug --predicate 'process == "pythonprompt" &amp;&amp; eventMessage CONTAINS[cd] "Showing alert"'</key>
 	<string>Return logs that trigger the python deprecation prompt.</string>
-	<key>log show --info --debug --predicate 'process == "softwareupdated" &amp;&amp; (eventMessage BEGINSWITH "SU Background" || eventMessage BEGINSWITH "SU Foreground")'</key>
+	<key>log show --debug --predicate 'process == "softwareupdated" &amp;&amp; (eventMessage BEGINSWITH "SU Background" || eventMessage BEGINSWITH "SU Foreground")'</key>
 	<string>Return logs for background or foreground scan operations.</string>
-	<key>log show --info --debug --predicate 'process == "softwareupdated" &amp;&amp; (subsystem == "com.apple.SoftwareUpdateMacController" &amp;&amp; category == "SU" &amp;&amp; eventMessage CONTAINS[cd] "Sending event" &amp;&amp; eventMessage CONTAINS[cd] "ota") || (subsystem == "com.apple.MobileSoftwareUpdate" &amp;&amp; category == "Info" &amp;&amp; eventMessage CONTAINS[cd] "updateFinished")'</key>
+	<key>log show --debug --predicate 'process == "softwareupdated" &amp;&amp; (subsystem == "com.apple.SoftwareUpdateMacController" &amp;&amp; category == "SU" &amp;&amp; eventMessage CONTAINS[cd] "Sending event" &amp;&amp; eventMessage CONTAINS[cd] "ota") || (subsystem == "com.apple.MobileSoftwareUpdate" &amp;&amp; category == "Info" &amp;&amp; eventMessage CONTAINS[cd] "updateFinished")'</key>
 	<string>Return logs about softwareupdate focused on MSU/OTA activity.</string>
-	<key>log show --info --debug --predicate 'process == "softwareupdated" &amp;&amp; subsystem IN { "com.apple.SotwareUpdate", "com.apple.mac.install", "com.apple.SoftwareUpdateMacController", "com.apple.mobileassetd" }'</key>
+	<key>log show --debug --predicate 'process == "softwareupdated" &amp;&amp; subsystem IN { "com.apple.SotwareUpdate", "com.apple.mac.install", "com.apple.SoftwareUpdateMacController", "com.apple.mobileassetd" }'</key>
 	<string>Return logs related to softwareupdated and Software Update.</string>
-	<key>log show --info --debug --predicate 'process == "sudo" || eventMessage CONTAINS[cd] "sudo"'</key>
+	<key>log show --debug --predicate 'process == "sudo" || eventMessage CONTAINS[cd] "sudo"'</key>
 	<string>Return logs pertaining to processes run with sudo.</string>
-	<key>log show --info --debug --predicate 'process == "syspolicyd" &amp;&amp; subsystem == "com.apple.syspolicy.exec"'</key>
+	<key>log show --debug --predicate 'process == "syspolicyd" &amp;&amp; subsystem == "com.apple.syspolicy.exec"'</key>
 	<string>Return logs related to Gatekeeper.</string>
-	<key>log show --info --debug --predicate 'process IN { "CertificateService", "mdmclient" }'</key>
+	<key>log show --debug --predicate 'process IN { "CertificateService", "mdmclient" }'</key>
 	<string>Return logs about mdmclient and the scep exchange</string>
-	<key>log show --info --debug --predicate 'process IN { "softwareupdated", "mdmclient" } || subsystem IN { "com.apple.SoftwareUpdateMacController", "com.apple.MobileSoftwareUpdate", "com.apple.SoftwareUpdate" }'</key>
+	<key>log show --debug --predicate 'process IN { "softwareupdated", "mdmclient" } || subsystem IN { "com.apple.SoftwareUpdateMacController", "com.apple.MobileSoftwareUpdate", "com.apple.SoftwareUpdate" }'</key>
 	<string>Return logs for softwareupdated or mdmclient processes including related subsystems.</string>
-	<key>log show --info --debug --predicate 'subsystem == "com.apple.AssetCache"'</key>
+	<key>log show --debug --predicate 'subsystem == "com.apple.AssetCache"'</key>
 	<string>Return logs related to Apple Content Caching.</string>
-	<key>log show --info --debug --predicate 'subsystem == "com.apple.CryptoTokenKit"'</key>
+	<key>log show --debug --predicate 'subsystem == "com.apple.CryptoTokenKit"'</key>
 	<string>Return logs pertaining to CryptoTokenKit.</string>
-	<key>log show --info --debug --predicate 'subsystem == "com.apple.ManagedClient" &amp;&amp; category == "OSUpdate"'</key>
+	<key>log show --debug --predicate 'subsystem == "com.apple.ManagedClient" &amp;&amp; category == "OSUpdate"'</key>
 	<string>Return logs regarding MDM software update commands (e.g. InstallASAP)</string>
-	<key>log show --info --debug --predicate 'subsystem == "com.apple.ManagedClient" &amp;&amp; eventMessage CONTAINS[cd] "Acknowledged"'</key>
+	<key>log show --debug --predicate 'subsystem == "com.apple.ManagedClient" &amp;&amp; eventMessage CONTAINS[cd] "Acknowledged"'</key>
 	<string>Return logs regarding mdmclient responses to push notifications.</string>
-	<key>log show --info --debug --predicate 'subsystem == "com.apple.ManagedClient" &amp;&amp; eventMessage CONTAINS[cd] "Canceled"'</key>
+	<key>log show --debug --predicate 'subsystem == "com.apple.ManagedClient" &amp;&amp; eventMessage CONTAINS[cd] "Canceled"'</key>
 	<string>Return logs regarding mdmclient failed responses to push notifcations.</string>
-	<key>log show --info --debug --predicate 'subsystem == "com.apple.ManagedClient"'</key>
+	<key>log show --debug --predicate 'subsystem == "com.apple.ManagedClient"'</key>
 	<string>Return logs pertaining to ManagedClient (MDM).</string>
-	<key>log show --info --debug --predicate 'subsystem == "com.apple.MobileSoftwareUpdate" &amp;&amp; category == "NRD" &amp;&amp; logType == "error"'</key>
+	<key>log show --debug --predicate 'subsystem == "com.apple.MobileSoftwareUpdate" &amp;&amp; category == "NRD" &amp;&amp; logType == "error"'</key>
 	<string>Return logs for softwareupdate regarding the RecoveryOS (showing errors).</string>
-	<key>log show --info --debug --predicate 'subsystem == "com.apple.SoftwareUpdate" &amp;&amp; category == "SoftwareUpdate"'</key>
+	<key>log show --debug --predicate 'subsystem == "com.apple.SoftwareUpdate" &amp;&amp; category == "SoftwareUpdate"'</key>
 	<string>Return logs for softwareupdate process and category.</string>
-	<key>log show --info --debug --predicate 'subsystem == "com.apple.SoftwareUpdate" &amp;&amp; process == "SoftwareUpdateNotificationManager" &amp;&amp; eventMessage CONTAINS[cd] "SUOSUNotificationCenterDelegate"'</key>
+	<key>log show --debug --predicate 'subsystem == "com.apple.SoftwareUpdate" &amp;&amp; process == "SoftwareUpdateNotificationManager" &amp;&amp; eventMessage CONTAINS[cd] "SUOSUNotificationCenterDelegate"'</key>
 	<string>Return logs for softwareupdate system notifications including user actions.</string>
-	<key>log show --info --debug --predicate 'subsystem == "com.apple.SoftwareUpdate"'</key>
+	<key>log show --debug --predicate 'subsystem == "com.apple.SoftwareUpdate"'</key>
 	<string>Return logs from Software Update process.</string>
-	<key>log show --info --debug --predicate 'subsystem == "com.apple.SoftwareUpdateMacController" &amp;&amp; eventMessage CONTAINS[cd] "CancellingScan"'</key>
+	<key>log show --debug --predicate 'subsystem == "com.apple.SoftwareUpdateMacController" &amp;&amp; eventMessage CONTAINS[cd] "CancellingScan"'</key>
 	<string>Return logs for Software Update canceled scans.</string>
-	<key>log show --info --debug --predicate 'subsystem == "com.apple.SoftwareUpdateMacController" &amp;&amp; eventMessage CONTAINS[cd] "MSU_ERR_BOOTPOLICY"'</key>
+	<key>log show --debug --predicate 'subsystem == "com.apple.SoftwareUpdateMacController" &amp;&amp; eventMessage CONTAINS[cd] "MSU_ERR_BOOTPOLICY"'</key>
 	<string>Return logs for softwareupdate and boot policy errors (such as failing to cache the credentials).</string>
-	<key>log show --info --debug --predicate 'subsystem == "com.apple.TCC" &amp;&amp; eventMessage BEGINSWITH[cd] "AttributionChain"'</key>
+	<key>log show --debug --predicate 'subsystem == "com.apple.TCC" &amp;&amp; eventMessage BEGINSWITH[cd] "AttributionChain"'</key>
 	<string>Return logs for AttributionChain to determine the correct bundleidentifier to allowlist.</string>
-	<key>log show --info --debug --predicate 'subsystem == "com.apple.TCC"'</key>
+	<key>log show --debug --predicate 'subsystem == "com.apple.TCC"'</key>
 	<string>Return logs showing TCC events.</string>
-	<key>log show --info --debug --predicate 'subsystem == "com.apple.XProtectFramework.PluginAPI" &amp;&amp; category == "XPEvent.structured"'</key>
+	<key>log show --debug --predicate 'subsystem == "com.apple.XProtectFramework.PluginAPI" &amp;&amp; category == "XPEvent.structured"'</key>
 	<string>Return logs showing Xprotect events.</string>
-	<key>log show --info --debug --predicate 'subsystem == "com.apple.backgroundtaskmanagement" &amp;&amp; category == "mcx"'</key>
+	<key>log show --debug --predicate 'subsystem == "com.apple.backgroundtaskmanagement" &amp;&amp; category == "mcx"'</key>
 	<string>Return logs for Background Task Management aka btm aka ServiceManagement aka Login Items aka launchd</string>
-	<key>log show --info --debug --predicate 'subsystem == "com.apple.backgroundtaskmanagement" &amp;&amp; eventMessage CONTAINS[cd] "Posting managed item notification request"'</key>
+	<key>log show --debug --predicate 'subsystem == "com.apple.backgroundtaskmanagement" &amp;&amp; eventMessage CONTAINS[cd] "Posting managed item notification request"'</key>
 	<string>Return logs pertaining to Managed Login Items (aka btm aka Background Task Management aka ServiceManagement) notifications.</string>
-	<key>log show --info --debug --predicate 'subsystem == "com.apple.backgroundtaskmanagement"'</key>
+	<key>log show --debug --predicate 'subsystem == "com.apple.backgroundtaskmanagement"'</key>
 	<string>Return logs regarding Login Items (aka btm aka Background Task Management aka ServiceManagement).</string>
-	<key>log show --info --debug --predicate 'subsystem == "com.apple.duetactivityscheduler" &amp;&amp; (eventMessage CONTAINS[cd] "softwareupdate" &amp;&amp; eventMessage CONTAINS[cd] "DecisionToRun")'</key>
+	<key>log show --debug --predicate 'subsystem == "com.apple.duetactivityscheduler" &amp;&amp; (eventMessage CONTAINS[cd] "softwareupdate" &amp;&amp; eventMessage CONTAINS[cd] "DecisionToRun")'</key>
 	<string>Return logs regarding CoreDuet (aka duetactivityscheduler) and if it has decided to run.</string>
-	<key>log show --info --debug --predicate 'subsystem == "com.apple.duetactivityscheduler" &amp;&amp; (eventMessage CONTAINS[cd] "softwareupdate" &amp;&amp; eventMessage CONTAINS[cd] "Rescheduling XPC Activity")'</key>
+	<key>log show --debug --predicate 'subsystem == "com.apple.duetactivityscheduler" &amp;&amp; (eventMessage CONTAINS[cd] "softwareupdate" &amp;&amp; eventMessage CONTAINS[cd] "Rescheduling XPC Activity")'</key>
 	<string>Return logs regarding CoreDuet (aka duetactivityscheduler) and any rescheduled activities.</string>
-	<key>log show --info --debug --predicate 'subsystem == "com.apple.duetactivityscheduler" &amp;&amp; (eventMessage CONTAINS[cd] "softwareupdate" &amp;&amp; eventMessage CONTAINS[cd] "Submitted Activity")'</key>
+	<key>log show --debug --predicate 'subsystem == "com.apple.duetactivityscheduler" &amp;&amp; (eventMessage CONTAINS[cd] "softwareupdate" &amp;&amp; eventMessage CONTAINS[cd] "Submitted Activity")'</key>
 	<string>Return logs regarding CoreDuet (aka duetactivityscheduler) and submitted activity status.</string>
-	<key>log show --info --debug --predicate 'subsystem == "com.apple.duetactivityscheduler" &amp;&amp; eventMessage CONTAINS[cd] "softwareupdate"'</key>
+	<key>log show --debug --predicate 'subsystem == "com.apple.duetactivityscheduler" &amp;&amp; eventMessage CONTAINS[cd] "softwareupdate"'</key>
 	<string>Return logs for CoreDuet (aka Duet Activity Scheduler) and softwareupdate.</string>
-	<key>log show --info --debug --predicate 'subsystem == "com.apple.mac.install" &amp;&amp; category == "MacBuddyX"'</key>
+	<key>log show --debug --predicate 'subsystem == "com.apple.mac.install" &amp;&amp; category == "MacBuddyX"'</key>
 	<string>Return logs for Setup Assistant progress.</string>
-	<key>log show --info --debug --predicate 'subsystem == "com.apple.network" &amp;&amp; category IN { "connection", "boringssl" }'</key>
+	<key>log show --debug --predicate 'subsystem == "com.apple.network" &amp;&amp; category IN { "connection", "boringssl" }'</key>
 	<string>Return logs related to Networking.</string>
-	<key>log show --info --debug --predicate 'subsystem == "com.apple.networkextension"'</key>
+	<key>log show --debug --predicate 'subsystem == "com.apple.networkextension"'</key>
 	<string>Return logs regarding network extensions.</string>
-	<key>log show --info --debug --predicate 'subsystem == "com.apple.securityd" &amp;&amp; category == "ocsp"'</key>
+	<key>log show --debug --predicate 'subsystem == "com.apple.securityd" &amp;&amp; category == "ocsp"'</key>
 	<string>Return logs related to OCSP (Certificate validity).</string>
-	<key>log show --info --debug --predicate 'subsystem == "com.apple.sharing" &amp;&amp; category == "AirDrop" &amp;&amp; eventMessage CONTAINS[cd] "Discoverable mode changed"'</key>
+	<key>log show --debug --predicate 'subsystem == "com.apple.sharing" &amp;&amp; category == "AirDrop" &amp;&amp; eventMessage CONTAINS[cd] "Discoverable mode changed"'</key>
 	<string>Return logs related to AirDrop discoverable mode.</string>
-	<key>log show --info --debug --predicate 'subsystem == "com.apple.sharing" &amp;&amp; category == "AutoUnlock"'</key>
+	<key>log show --debug --predicate 'subsystem == "com.apple.sharing" &amp;&amp; category == "AutoUnlock"'</key>
 	<string>Return logs related to Apple Watch unlock (AutoUnlock).</string>
-	<key>log show --info --debug --predicate 'subsystem == "com.apple.unc" &amp;&amp; eventMessage CONTAINS[cd] "displaying"'</key>
+	<key>log show --debug --predicate 'subsystem == "com.apple.unc" &amp;&amp; eventMessage CONTAINS[cd] "displaying"'</key>
 	<string>Return logs for Notification Center notifications.</string>
-	<key>log show --info --debug --predicate 'subsystem == "com.apple.unc"'</key>
+	<key>log show --debug --predicate 'subsystem == "com.apple.unc"'</key>
 	<string>Return logs from Notification Center to determine the correct bundleidentifier to allowlist.</string>
-	<key>log show --info --debug --predicate 'subsystem == "com.apple.xprotect"'</key>
+	<key>log show --debug --predicate 'subsystem == "com.apple.xprotect"'</key>
 	<string>Return logs related to XProtect.</string>
-	<key>log show --info --debug --predicate 'subsystem == "com.cisco.anyconnect.vpn" &amp;&amp; category IN { "acvpnagent", "acvpnui", "acvpncli" }'</key>
+	<key>log show --debug --predicate 'subsystem == "com.cisco.anyconnect.vpn" &amp;&amp; category IN { "acvpnagent", "acvpnui", "acvpncli" }'</key>
 	<string>Return logs showing more focused AnyConnect events.</string>
-	<key>log show --info --debug --predicate 'subsystem == "com.cisco.anyconnect.vpn"'</key>
+	<key>log show --debug --predicate 'subsystem == "com.cisco.anyconnect.vpn"'</key>
 	<string>Return logs showing AnyConnect events.</string>
-	<key>log show --info --debug --predicate 'subsystem == "com.github.macadmins.Nudge"'</key>
+	<key>log show --debug --predicate 'subsystem == "com.github.macadmins.Nudge"'</key>
 	<string>Return logs for Nudge.</string>
-	<key>log show --info --debug --predicate 'subsystem == "com.grahamgilbert.crypt"'</key>
+	<key>log show --debug --predicate 'subsystem == "com.grahamgilbert.crypt"'</key>
 	<string>Return logs for Crypt.</string>
-	<key>log show --info --debug --predicate 'subsystem IN { "com.apple.SoftwareUpdateMacController", "com.apple.MobileSoftwareUpdate", "com.apple.SoftwareUpdate" }'</key>
+	<key>log show --debug --predicate 'subsystem IN { "com.apple.SoftwareUpdateMacController", "com.apple.MobileSoftwareUpdate", "com.apple.SoftwareUpdate" }'</key>
 	<string>Return logs for Software Update subsystems.</string>
-	<key>log show --predicate '(process == "dasd") &amp;&amp; (eventMessage CONTAINS[cd] "com.apple.SoftwareUpdate") &amp;&amp; (eventMessage CONTAINS[cd] "PolicyWeight")'</key>
+	<key>log show --debug --predicate '(process == "dasd") &amp;&amp; (eventMessage CONTAINS[cd] "com.apple.SoftwareUpdate") &amp;&amp; (eventMessage CONTAINS[cd] "PolicyWeight")'</key>
 	<string>Return logs for CoreDuet decisions regarding softwareupdate.</string>
 	<key>logger -is</key>
 	<string>Log the process id and message to stderr and syslog.</string>
