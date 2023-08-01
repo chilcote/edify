@@ -618,6 +618,8 @@
 	<string>Show offline connections.</string>
 	<key>open "x-apple.systempreferences:com.apple.preferences.softwareupdate?client=bau&amp;installMajorOSBundle=com.apple.InstallAssistant.Mojave"</key>
 	<string>Download Mojave beta.</string>
+	<key>open 'x-apple.systempreferences:com.apple.Software-Update-Settings.extension?action=showBetaUpdates'</key>
+	<string>Open the hidden system settings beta pane.</string>
 	<key>open /System/Library/Frameworks/ScreenSaver.framework/Versions/A/Resources/ScreenSaverEngine.app</key>
 	<string>Start screensaver.</string>
 	<key>open macappstore://showUpdatesPage</key>
