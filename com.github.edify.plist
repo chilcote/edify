@@ -842,6 +842,8 @@
 	<string>Max out the volume using applescript.</string>
 	<key>sudo pkill -U user Foo</key>
 	<string>Kill specific process by name 'Foo'.</string>
+	<key>sudo plutil -p /Library/Application\ Support/com.apple.TCC/MDMOverrides.plist</key>
+	<string>List out the current PPPC settings locally.</string>
 	<key>sudo pmset -a hibernatemode 0</key>
 	<string>Disable safe sleep mode. If you want safe sleep mode back, just change the '0' to a '3'.</string>
 	<key>sudo route -n flush &amp;&amp; sudo networksetup -setv4off Wi-Fi &amp;&amp; sudo networksetup -setdhcp Wi-Fi</key>
