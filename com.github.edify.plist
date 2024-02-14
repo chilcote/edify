@@ -418,7 +418,7 @@
 	<string>Return logs for background or foreground scan operations.</string>
 	<key>log show --info --debug --predicate 'process == "softwareupdated" &amp;&amp; (subsystem == "com.apple.SoftwareUpdateMacController" &amp;&amp; category == "SU" &amp;&amp; eventMessage CONTAINS[cd] "Sending event" &amp;&amp; eventMessage CONTAINS[cd] "ota") || (subsystem == "com.apple.MobileSoftwareUpdate" &amp;&amp; category == "Info" &amp;&amp; eventMessage CONTAINS[cd] "updateFinished")'</key>
 	<string>Return logs about softwareupdate focused on MSU/OTA activity.</string>
-	<key>log show --info --debug --predicate 'process == "softwareupdated" &amp;&amp; subsystem IN { "com.apple.SotwareUpdate", "com.apple.mac.install", "com.apple.SoftwareUpdateMacController", "com.apple.mobileassetd" }'</key>
+	<key>log show --info --debug --predicate 'process == "softwareupdated" &amp;&amp; subsystem IN { "com.apple.SoftwareUpdate", "com.apple.mac.install", "com.apple.SoftwareUpdateMacController", "com.apple.mobileassetd" }'</key>
 	<string>Return logs related to softwareupdated and Software Update.</string>
 	<key>log show --info --debug --predicate 'process == "sudo" || eventMessage CONTAINS[cd] "sudo"'</key>
 	<string>Return logs pertaining to processes run with sudo.</string>
