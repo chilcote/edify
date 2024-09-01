@@ -88,6 +88,8 @@
 	<string>dscl -f /Volumes/Macintosh\ HD\ -\ Data/private/var/db/dslocal/nodes/Default localhost -passwd /Local/Default/Users/root</string>
 	<key>Profiles -Lo stdout-xml</key>
 	<string>Print the contents/settings of a config profile</string>
+	<key>Query local cache of DDM Software Updates declarations.</key>
+	<string>sudo plutil -p db/softwareupdate/SoftwareUpdateDDMStatePersistence.plist</string>
 	<key>ac -p | sort -nrk 2 | awk 'NR == 2 { print $1; exit }'</key>
 	<string>Returns the username of the user with longest time logged in.</string>
 	<key>arch -x86_64 /bin/test 0</key>
