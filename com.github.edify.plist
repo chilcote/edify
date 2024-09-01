@@ -6,6 +6,14 @@
 	<string></string>
 	<key>"/Applications/Install OS X El Capitan.app/Contents/Resources/startosinstall --nointeraction --volume /Volumes/Macintosh\ HD --applicationpath "/Applications/Install OS X El Capitan.app"</key>
 	<string>Non-interactively update OS X to 10.11.</string>
+	<key>./kmfddm/tools/api-status-values-get.sh $ID '.StatusItems.device.model.family' | jq .</key>
+	<string>KFMDDM command for returning device model family.</string>
+	<key>./kmfddm/tools/api-status-values-get.sh $ID '.StatusItems.device.model.identifier' | jq .</key>
+	<string>KMFDDM command for returning status values.</string>
+	<key>./kmfddm/tools/api-status-values-get.sh $ID '.StatusItems.device.operating-system.version' | jq .</key>
+	<string>KMFDDM command for returning operating system version.</string>
+	<key>./kmfddm/tools/api-status-values-get.sh $ID '.StatusItems.device.power.battery-health' | jq .</key>
+	<string>KMFDDM command for returning battery health info.</string>
 	<key>/Applications/Install\ macOS\ Big\ Sur.app/Contents/Resources/startosinstall --agreetolicense --rebootdelay 90 --eraseinstall --newvolumename "Macintosh HD" --forcequitapps --user username --passprompt</key>
 	<string>Run startosinstall interactively to erase and install macOS.</string>
 	<key>/Library/Application\ Support/JAMF/bin/Management\ Action.app/Contents/MacOS/Management\ Action -message 'foo' -title 'bar' -subtitle 'baz' -sound default -open URL -activate com.apple.Terminal</key>
@@ -36,6 +44,8 @@
 	<string>Configure a software update appleseed catalog (CustomerSeed, DeveloperSeed, PublicSeed).</string>
 	<key>/System/Library/PrivateFrameworks/SystemAdministration.framework/Versions/A/Resources/DirectoryTools -repairPermissions username</key>
 	<string>Repair permissions of a given username. Useful when migrating local accounts.</string>
+	<key>/opt/cisco/secureclient/bin/acinstallhelper -launchAtLogin -disable</key>
+	<string>Unload the login item for Secure Client.</string>
 	<key>/usr/bin/AssetCacheLocatorUtil</key>
 	<string>Get the caching server being used by this mac.</string>
 	<key>/usr/bin/csrutil clear</key>
@@ -388,6 +398,8 @@
 	<string>Return logs for CoreDuet decisions regarding softwareupdate.</string>
 	<key>log show --info --debug --predicate '(process IN { "configd", "Setup Assistant" }) || (process == "mDNSResponder" &amp;&amp; subsystem == "com.apple.mdns" AND category == "resolver")'</key>
 	<string>Return logs regarding DNS resolution during setup assistant</string>
+	<key>log show --info --debug --predicate '(subsystem == "com.apple.remotemanagementd" || subsystem == "RemoteManagement") || processImagePath CONTAINS[cd] "RemoteManagement.framework"'</key>
+	<string>Show logs for DDM.</string>
 	<key>log show --info --debug --predicate 'process == "SoftwareUpdateNotificationManager" &amp;&amp; eventMessage CONTAINS[cd] "SUOSURestartCountdownOperation"'</key>
 	<string>Return logs for softwareupdate countdown notifications.</string>
 	<key>log show --info --debug --predicate 'process == "apsd" &amp;&amp; subsystem == "com.apple.apsd"'</key>
@@ -404,6 +416,8 @@
 	<string>Return logs for mdmclient communicating with the server.</string>
 	<key>log show --info --debug --predicate 'process == "mdmclient" &amp;&amp; eventMessage CONTAINS[cd] "BootstrapToken"'</key>
 	<string>Return logs related to bootstraptoken requests via mdmclient.</string>
+	<key>log show --info --debug --predicate 'process == "mdmclient" &amp;&amp; eventMessage CONTAINS[cd] "Fetching asset"'</key>
+	<string>Show logs for DDM service configs and asset downloads.</string>
 	<key>log show --info --debug --predicate 'process == "mdmclient" &amp;&amp; eventMessage CONTAINS[cd] "MDM Requested"'</key>
 	<string>Return logs for softwareupdate commands initiated by MDM.</string>
 	<key>log show --info --debug --predicate 'process == "mdmclient" &amp;&amp; eventMessage CONTAINS[cd] "Processing server request"'</key>
@@ -430,6 +444,8 @@
 	<string>Return logs about mdmclient and the scep exchange</string>
 	<key>log show --info --debug --predicate 'process IN { "softwareupdated", "mdmclient" } || subsystem IN { "com.apple.SoftwareUpdateMacController", "com.apple.MobileSoftwareUpdate", "com.apple.SoftwareUpdate" }'</key>
 	<string>Return logs for softwareupdated or mdmclient processes including related subsystems.</string>
+	<key>log show --info --debug --predicate 'subsystem == "com.apple.AppSSO"'</key>
+	<string>Show PlatformSSO logs</string>
 	<key>log show --info --debug --predicate 'subsystem == "com.apple.AssetCache"'</key>
 	<string>Return logs related to Apple Content Caching.</string>
 	<key>log show --info --debug --predicate 'subsystem == "com.apple.CryptoTokenKit"'</key>
@@ -480,12 +496,16 @@
 	<string>Return logs related to Networking.</string>
 	<key>log show --info --debug --predicate 'subsystem == "com.apple.networkextension"'</key>
 	<string>Return logs regarding network extensions.</string>
+	<key>log show --info --debug --predicate 'subsystem == "com.apple.remotemanagementd" &amp;&amp; category == "statusPublisherDelegate"'</key>
+	<string>Show logs for DDM software update status reports.</string>
 	<key>log show --info --debug --predicate 'subsystem == "com.apple.securityd" &amp;&amp; category == "ocsp"'</key>
 	<string>Return logs related to OCSP (Certificate validity).</string>
 	<key>log show --info --debug --predicate 'subsystem == "com.apple.sharing" &amp;&amp; category == "AirDrop" &amp;&amp; eventMessage CONTAINS[cd] "Discoverable mode changed"'</key>
 	<string>Return logs related to AirDrop discoverable mode.</string>
 	<key>log show --info --debug --predicate 'subsystem == "com.apple.sharing" &amp;&amp; category == "AutoUnlock"'</key>
 	<string>Return logs related to Apple Watch unlock (AutoUnlock).</string>
+	<key>log show --info --debug --predicate 'subsystem == "com.apple.su" &amp;&amp; category == "DDM"' --style compact</key>
+	<string>Show logs for DDM software update.</string>
 	<key>log show --info --debug --predicate 'subsystem == "com.apple.unc" &amp;&amp; eventMessage CONTAINS[cd] "displaying"'</key>
 	<string>Return logs for Notification Center notifications.</string>
 	<key>log show --info --debug --predicate 'subsystem == "com.apple.unc"'</key>
