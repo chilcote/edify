@@ -526,6 +526,8 @@
 	<string>Return logs for Crypt.</string>
 	<key>log show --info --debug --predicate 'subsystem IN { "com.apple.SoftwareUpdateMacController", "com.apple.MobileSoftwareUpdate", "com.apple.SoftwareUpdate" }'</key>
 	<string>Return logs for Software Update subsystems.</string>
+	<key>log stream --info --debug --predicate 'subsystem == "com.apple.su" &amp;&amp; category == "DDM" &amp;&amp; eventMessage CONTAINS[cd] "reporting status"'</key>
+	<string>Return logs showing DDM software update status reports.</string>
 	<key>logger -is</key>
 	<string>Log the process id and message to stderr and syslog.</string>
 	<key>lpadmin -p "$printer_name" -o printer-is-shared=false</key>
