@@ -402,6 +402,8 @@
 	<string>Return logs for CoreDuet decisions regarding softwareupdate.</string>
 	<key>log show --info --debug --predicate '(process IN { "configd", "Setup Assistant" }) || (process == "mDNSResponder" &amp;&amp; subsystem == "com.apple.mdns" AND category == "resolver")'</key>
 	<string>Return logs regarding DNS resolution during setup assistant</string>
+	<key>log show --info --debug --predicate '(subsystem == "com.apple.powerd" &amp;&amp; eventMessage CONTAINS[cd] "Battery capacity") || (subsystem == "com.apple.powerd"  &amp;&amp; category = "sleepWake" &amp;&amp; eventMessage CONTAINS[cd] "vm.darkwake_mode: 0 -&gt; 1")' --last 3d --style compact</key>
+	<string>Display logs relating to battery capacity and darkwake activity.</string>
 	<key>log show --info --debug --predicate '(subsystem == "com.apple.remotemanagementd" || subsystem == "RemoteManagement") || processImagePath CONTAINS[cd] "RemoteManagement.framework"'</key>
 	<string>Show logs for DDM.</string>
 	<key>log show --info --debug --predicate 'process == "SoftwareUpdateNotificationManager" &amp;&amp; eventMessage CONTAINS[cd] "SUOSURestartCountdownOperation"'</key>
