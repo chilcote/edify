@@ -672,6 +672,8 @@
 	<string>Get CN out of cert using openssl.</string>
 	<key>osascript -e 'set volume output muted true'</key>
 	<string>Mute the volume using applescript.</string>
+	<key>osqueryi "select identifier, state from system_extensions;"</key>
+	<string>Use osquery to return system extension state.</string>
 	<key>osqueryi --disable_extensions --disable_events --flagfile=</key>
 	<string>Run osquery without debug output.</string>
 	<key>perl -i -pe's/\r$//;' foo</key>
