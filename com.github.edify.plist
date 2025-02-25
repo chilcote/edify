@@ -90,6 +90,8 @@
 	<string>Add a user to admin group.</string>
 	<key>/usr/sbin/dseditgroup -o edit -a foo -t user com.apple.access_ssh</key>
 	<string>Add a user to the ssh access group.</string>
+	<key>/usr/sbin/ipconfig getsummary en0 en1 | awk -F ' SSID : ' '/ SSID : / {print $2}' |grep -i &lt;SSID&gt;</key>
+	<string>Command to confirm the current SSID in use.</string>
 	<key>/usr/sbin/scutil -w State:/Network/Global/DNS -t 180</key>
 	<string>A way to wait for network to be active before proceeding in a script.</string>
 	<key>Enable root from RecoveryOS (Apple Silicon)</key>
@@ -406,6 +408,8 @@
 	<string>Display logs relating to battery capacity and darkwake activity.</string>
 	<key>log show --info --debug --predicate '(subsystem == "com.apple.remotemanagementd" || subsystem == "RemoteManagement") || processImagePath CONTAINS[cd] "RemoteManagement.framework"'</key>
 	<string>Show logs for DDM.</string>
+	<key>log show --info --debug --predicate 'process = "airportd" &amp;&amp; subsystem == "com.apple.WiFiManager" &amp;&amp; eventMessage CONTAINS[cd] "Successfully associated to Wi-Fi network"'</key>
+	<string>Log command to show when a wifi network was joined.</string>
 	<key>log show --info --debug --predicate 'process == "SoftwareUpdateNotificationManager" &amp;&amp; eventMessage CONTAINS[cd] "SUOSURestartCountdownOperation"'</key>
 	<string>Return logs for softwareupdate countdown notifications.</string>
 	<key>log show --info --debug --predicate 'process == "apsd" &amp;&amp; subsystem == "com.apple.apsd"'</key>
@@ -462,6 +466,8 @@
 	<string>Return logs regarding mdmclient responses to push notifications.</string>
 	<key>log show --info --debug --predicate 'subsystem == "com.apple.ManagedClient" &amp;&amp; eventMessage CONTAINS[cd] "Canceled"'</key>
 	<string>Return logs regarding mdmclient failed responses to push notifcations.</string>
+	<key>log show --info --debug --predicate 'subsystem == "com.apple.ManagedClient" &amp;&amp; eventMessage CONTAINS[cd] "Installed configuration profile:"'</key>
+	<string>Log command to show local installation of config profiles.</string>
 	<key>log show --info --debug --predicate 'subsystem == "com.apple.ManagedClient"'</key>
 	<string>Return logs pertaining to ManagedClient (MDM).</string>
 	<key>log show --info --debug --predicate 'subsystem == "com.apple.MobileSoftwareUpdate" &amp;&amp; category == "NRD" &amp;&amp; logType == "error"'</key>
@@ -478,6 +484,8 @@
 	<string>Return logs for softwareupdate and boot policy errors (such as failing to cache the credentials).</string>
 	<key>log show --info --debug --predicate 'subsystem == "com.apple.TCC" &amp;&amp; eventMessage BEGINSWITH[cd] "AttributionChain"'</key>
 	<string>Return logs for AttributionChain to determine the correct bundleidentifier to allowlist.</string>
+	<key>log show --info --debug --predicate 'subsystem == "com.apple.TCC" AND eventMessage BEGINSWITH "AUTHREQ"'</key>
+	<string>Return more verbose logs to determine look at tcc activity.</string>
 	<key>log show --info --debug --predicate 'subsystem == "com.apple.TCC"'</key>
 	<string>Return logs showing TCC events.</string>
 	<key>log show --info --debug --predicate 'subsystem == "com.apple.XProtectFramework.PluginAPI" &amp;&amp; category == "XPEvent.structured"'</key>
