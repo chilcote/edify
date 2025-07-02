@@ -170,6 +170,8 @@
 	<string>Generate a numeric date for use in a script.</string>
 	<key>dd if=/dev/random bs=16 count=1 2&gt;/dev/null | base64 | sed 's/=//g'</key>
 	<string>Generate 128bit password.</string>
+	<key>defaults delete -g EnablePasteboardPrivacyDeveloperPreview</key>
+	<string>Remove global defaults for testing Pasteboard privacy changes.</string>
 	<key>defaults delete /Library/Preferences/com.apple.SoftwareUpdate SUDisableEVCheck</key>
 	<string>Disable the SUDisableEVCheck setting for softwareupdate.</string>
 	<key>defaults delete /Library/Preferences/com.apple.seeding</key>
@@ -178,6 +180,8 @@
 	<string>Get the version no. of an app.</string>
 	<key>defaults read com.apple.preferences.softwareupdate ProductKeysLastSeenByUser</key>
 	<string>Return the most recent known product key from softwareupdate scans (useful for getting the beta key since they do not bump the version).</string>
+	<key>defaults write -g EnablePasteboardPrivacyDeveloperPreview -bool yes</key>
+	<string>Enable global defaults for testing Pasteboard privacy changes.</string>
 	<key>defaults write /Library/Preferences/com.apple.SoftwareUpdate CatalogURL http://server.domain.com</key>
 	<string>Change the SUS server, i.e. for use with Reposado.</string>
 	<key>defaults write com.apple.Enterprise-Connect debugMode -bool true</key>
@@ -316,6 +320,8 @@
 	<string>Get serial number of current Mac.</string>
 	<key>ioreg -c IOPlatformExpertDevice -d 2 |awk '/IOPlatformUUID/ {print $3}' |sed s/\"//g </key>
 	<string>Get uuid of the current Mac.</string>
+	<key>ioreg -r -k AppleClamshellState -d 4 | grep AppleClamshellState</key>
+	<string>Determine if Mac is in clamshell mode.</string>
 	<key>ioreg -w 0 -c IOPlatformDevice -d 4 | awk -F '" = &lt;"|"&gt;$' '/product-name/ {print $2}'</key>
 	<string>Return the Product (Marketing) Name of the mac model.</string>
 	<key>iostat -d disk0</key>
@@ -834,6 +840,8 @@
 	<string>Unload the santa system extension.</string>
 	<key>sudo /System/Library/Frameworks/CoreServices.framework/Versions/Current/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user</key>
 	<string>Reset launch services database.</string>
+	<key>sudo /usr/local/bin/mdatp system-extension network-filter disable</key>
+	<string>Disable MDE network extension.</string>
 	<key>sudo chflags nouchg foo</key>
 	<string>Remove immutable attribute flag, similar to chattr in linux.</string>
 	<key>sudo chflags uchg foo</key>
